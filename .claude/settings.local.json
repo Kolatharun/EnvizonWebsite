@@ -3,7 +3,29 @@
     "allow": [
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8791/index.html)",
       "Bash(node -e ' *)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8877/index.html)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8877/index.html)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(command -v node)",
+      "Bash(command -v npx)",
+      "Bash(npx --yes playwright install chromium --with-deps)",
+      "Bash(npx --yes playwright install chromium)",
+      "Read(//c/Users/kolat/AppData/Local/ms-playwright/**)",
+      "Bash(npm install *)",
+      "Read(//c/Users/kolat/AppData/Local/Temp/claude/c--Envizon-studio-envizonwebsite/5f799c9d-11ff-4165-ad67-0be4709a4a3d/scratchpad/**)",
+      "Bash(npm init *)",
+      "Bash(npx playwright *)",
+      "Read(//c/c/Users/kolat/AppData/Local/Temp/claude/c--Envizon-studio-envizonwebsite/5f799c9d-11ff-4165-ad67-0be4709a4a3d/scratchpad/**)",
+      "Bash(node shot.js)",
+      "Bash(echo \"EXIT:$?\")",
+      "Read(//c/Users/kolat/.claude/**)",
+      "Read(//c//**)",
+      "Bash(npm ls *)",
+      "Bash(where chrome.exe)",
+      "Bash(where msedge.exe)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Bash(npx --no-install playwright --version)",
+      "Read(//tmp/**)"
     ]
   }
 }

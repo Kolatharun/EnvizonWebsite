@@ -1,0 +1,315 @@
+/* HOW WE WORK — five-stage process cards */
+
+:root{
+
+    --how-work-card-count:5;
+    --how-work-card-basis:20%;
+    --how-work-card-active:34%;
+    --how-work-card-collapsed:16.5%;
+    --how-work-active-bg:#0B0B0B;
+    --how-work-anim:.4s ease;
+
+}
+
+.how-we-work{
+    background:#F9F8F8;
+    padding:100px 0;
+    overflow:hidden;
+}
+
+.how-we-work__container{
+    width:min(1196px, calc(100% - 48px));
+    margin:0 auto;
+}
+
+/* ============================= */
+/* HEADER                         */
+/* ============================= */
+
+.how-we-work__header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+    margin-bottom:80px;
+}
+
+.how-we-work__eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.how-we-work__eyebrow-line{
+    width:22px;
+    height:2px;
+    background:var(--primary);
+    flex-shrink:0;
+}
+
+.how-we-work__eyebrow span{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text-muted);
+}
+
+.how-we-work__title{
+    font-size:clamp(2.25rem, 1.5rem + 2.8vw, 3.5rem);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-0.02em;
+    color:var(--black);
+}
+
+.how-we-work__title-accent{
+    display:block;
+    color:var(--primary);
+}
+
+.how-we-work__aside{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:24px;
+    max-width:420px;
+    padding-top:4px;
+}
+
+.how-we-work__cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 24px;
+    border-radius:var(--radius-pill);
+    background:#ffffff;
+    border:1px solid var(--border-light);
+    font-size:14px;
+    font-weight:600;
+    color:var(--black);
+    transition:border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.how-we-work__cta span{
+    font-size:15px;
+}
+
+.how-we-work__cta:hover{
+    border-color:var(--primary);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transform:translateY(-2px);
+}
+
+.how-we-work__text{
+    font-size:16px;
+    line-height:1.6;
+    color:var(--text);
+}
+
+/* ============================= */
+/* STAGE CARDS                    */
+/* ============================= */
+
+.stage-cards{
+    display:flex;
+    width:100%;
+    height:280.71px;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.stage-card{
+    position:relative;
+    flex:0 0 var(--how-work-card-basis);
+    min-width:0;
+    background:#ffffff;
+    color:var(--black);
+    cursor:pointer;
+    border:none;
+    text-align:left;
+    font-family:inherit;
+    transition:flex-basis var(--how-work-anim), background-color var(--how-work-anim), color var(--how-work-anim);
+}
+
+.stage-card.is-active{
+    flex-basis:var(--how-work-card-active);
+    background:var(--how-work-active-bg);
+    color:#ffffff;
+}
+
+.stage-cards.has-active .stage-card:not(.is-active){
+    flex-basis:var(--how-work-card-collapsed);
+}
+
+.stage-card__inner{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    padding:37.6px 30px;
+    gap:15px;
+}
+
+.stage-card__row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.stage-card__number{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    transition:color var(--how-work-anim);
+    white-space:nowrap;
+}
+
+.stage-card.is-active .stage-card__number{
+    color:rgba(255,255,255,.55);
+}
+
+.stage-card__icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:20px;
+    height:20px;
+    flex-shrink:0;
+    color:var(--border-light);
+    transition:color var(--how-work-anim);
+}
+
+.stage-card__icon svg{
+    width:100%;
+    height:100%;
+    stroke:currentColor;
+}
+
+.stage-card.is-active .stage-card__icon{
+    color:var(--primary);
+}
+
+.stage-card__title{
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    color:var(--black);
+    transition:color var(--how-work-anim);
+    white-space:nowrap;
+}
+
+.stage-card.is-active .stage-card__title{
+    color:#ffffff;
+}
+
+.stage-card__desc{
+    font-size:14px;
+    line-height:1.6;
+    color:rgba(255,255,255,.72);
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+    transition:opacity var(--how-work-anim), max-height var(--how-work-anim);
+}
+
+.stage-card.is-active .stage-card__desc{
+    opacity:1;
+    max-height:160px;
+}
+
+/* ============================= */
+/* TABLET — horizontal slider     */
+/* ============================= */
+
+/* Cards keep a fixed, equal width on touch/tablet — only color and the
+   description reveal toggle on tap. Animating flex-basis here as well
+   (like the desktop hover-expand) would resize the active card while the
+   user is mid-swipe, shifting scrollLeft under their finger and making the
+   snap-scroll track jump. */
+
+@media(max-width:1024px){
+
+    .how-we-work{
+        padding:80px 0;
+    }
+
+    .how-we-work__header{
+        margin-bottom:56px;
+    }
+
+    .stage-cards{
+        height:auto;
+        min-height:260px;
+        overflow-x:auto;
+        overflow-y:hidden;
+        border-radius:16px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+
+    .stage-cards::-webkit-scrollbar{
+        display:none;
+    }
+
+    .stage-card,
+    .stage-cards.has-active .stage-card:not(.is-active),
+    .stage-card.is-active{
+        flex-basis:46%;
+        scroll-snap-align:start;
+    }
+
+    .stage-card__title{
+        white-space:normal;
+    }
+}
+
+@media(max-width:768px){
+    .how-we-work__header{
+        flex-direction:column;
+        gap:28px;
+    }
+
+    .how-we-work__aside{
+        max-width:none;
+    }
+
+    .stage-card,
+    .stage-cards.has-active .stage-card:not(.is-active),
+    .stage-card.is-active{
+        flex-basis:62%;
+    }
+}
+
+/* ============================= */
+/* MOBILE — one-card carousel     */
+/* ============================= */
+
+@media(max-width:480px){
+
+    .how-we-work{
+        padding:64px 0;
+    }
+
+    .how-we-work__header{
+        margin-bottom:40px;
+    }
+
+    .stage-card,
+    .stage-cards.has-active .stage-card:not(.is-active),
+    .stage-card.is-active{
+        flex-basis:88%;
+    }
+
+    .stage-card__inner{
+        padding:28px 24px;
+    }
+
+    .stage-card__title{
+        font-size:20px;
+    }
+}

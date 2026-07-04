@@ -15,10 +15,6 @@
 /* ============================= */
 
 .stats-highlight__top{
-    display:grid;
-    grid-template-columns:1.35fr 1fr;
-    gap:48px;
-    align-items:end;
     margin-bottom:96px;
 }
 
@@ -33,6 +29,13 @@
 
 .stats-highlight__title span{
     color:var(--primary);
+}
+
+.stats-highlight__row{
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    gap:48px;
+    align-items:end;
 }
 
 .stats-highlight__text{
@@ -156,10 +159,14 @@
 }
 
 @media(max-width:860px){
-    .stats-highlight__top{
+    .stats-highlight__row{
         grid-template-columns:1fr;
-        gap:28px;
+        gap:20px;
         align-items:start;
+    }
+
+    .stats-highlight__text{
+        max-width:none;
     }
 
     .stats-highlight__right{

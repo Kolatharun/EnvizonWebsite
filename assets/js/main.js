@@ -2,12 +2,14 @@ import { initNavbar } from './components/navbar.js';
 import { initShowcaseCarousel } from './components/carousel.js';
 import { initServicesNav } from './components/services-ticker.js';
 import { initServicesScroll } from './components/services-scroll.js';
+import { initHowWeWork } from './components/how-we-work.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     const carousel = initShowcaseCarousel('#showcaseCarousel');
     initServicesNav('#servicesTicker', carousel);
     initServicesScroll('#servicesScroll');
+    initHowWeWork('.how-we-work');
 });
 
 /**
