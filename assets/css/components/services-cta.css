@@ -1,0 +1,300 @@
+/* SERVICES PAGE — global call-to-action band */
+
+.global-cta {
+  background-color: var(--wwwungrammarycom-White);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: auto;
+  min-height: 0;
+  padding: clamp(80px, 10vw, 152px) 0 0;
+  gap: clamp(72px, 12vw, 150px);
+  max-width: 100%;
+  align-self: stretch;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.call-to-action-content {
+  justify-content: center;
+  padding: var(--padding-0) var(--padding-20);
+  gap: var(--gap-0);
+  flex-shrink: 0;
+  text-align: center;
+  font-size: var(--fs-64);
+  color: var(--color-gray-800);
+  font-family: var(--font-satoshi);
+  align-self: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+  height: auto;
+  transform: rotate(0deg);
+  flex-direction: row;
+  justify-content: center;
+}
+
+.frame-parent {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  height: auto;
+  transform: rotate(0deg);
+  flex-direction: column;
+  gap: 43.7px;
+  width: auto;
+  align-self: unset;
+  justify-content: flex-start;
+}
+
+.lets-build-something-people-r-parent {
+  display: flex;
+  align-self: stretch;
+  width: 100%;
+  height: auto;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  transform: rotate(0deg);
+  max-width: 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+.lets-build-something-container {
+  font-weight: 900;
+  line-height: 120%;
+  display: block;
+  flex: 1;
+  height: auto;
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.lets-build-something {
+  letter-spacing: -2px;
+  line-height: 120%;
+}
+
+.people-remember {
+  letter-spacing: -3px;
+  color: var(--test-roan-six-87vercelapp-Fire-Bush);
+  line-height: 120%;
+}
+
+.decorative-elements {
+  display: block;
+  width: var(--width-1121_4);
+  height: 865px;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  transform: rotate(0deg);
+  position: absolute;
+  margin: 0 !important;
+  bottom: -836px;
+  left: -162.8px;
+  flex-shrink: 0;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.decorative-elements-child {
+  position: absolute;
+  top: 4.3px;
+  left: 0;
+  flex-shrink: 0;
+  display: block;
+  width: var(--width-1121_4);
+  height: 1121.4px;
+}
+
+.dot-one-icon {
+  position: absolute;
+  top: 0;
+  left: 105.4px;
+  border-radius: var(--br-50);
+  object-fit: cover;
+  z-index: 1;
+  flex-shrink: 0;
+  display: block;
+  width: 72.7px;
+  height: 72.7px;
+  border: var(--border-2);
+  box-sizing: border-box;
+}
+
+.dot-two-icon {
+  top: 72.7px;
+  left: 876px;
+  display: block;
+  width: 92px;
+  height: 92px;
+  border: 2.8px solid var(--wwwungrammarycom-White);
+  box-sizing: border-box;
+}
+
+.dot-four-icon,
+.dot-three-icon,
+.dot-two-icon {
+  position: absolute;
+  border-radius: var(--br-50);
+  object-fit: cover;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.dot-three-icon {
+  top: 127.7px;
+  left: 265.9px;
+  display: block;
+  width: 95.5px;
+  height: 95.5px;
+  border: var(--border-3);
+  box-sizing: border-box;
+}
+
+.dot-four-icon {
+  top: 154.3px;
+  left: 763.7px;
+  display: block;
+  width: 69.5px;
+  height: 69.5px;
+  border: var(--border-3);
+  box-sizing: border-box;
+}
+
+.cta-button-wrapper {
+  align-self: center;
+  padding: 0;
+  width: auto;
+  gap: var(--gap-0);
+  transform: rotate(0deg);
+  display: flex;
+  height: auto;
+  align-items: center;
+}
+
+.link6 {
+  flex: 0 0 auto;
+  gap: var(--gap-12);
+  border-radius: var(--br-100);
+  padding: var(--padding-16) var(--padding-29) var(--padding-16) var(--padding-39);
+  justify-content: center;
+  min-height: 56px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: var(--color-whitesmoke-100);
+  display: flex;
+  height: auto;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+/* the only real button in this section keeps its hover feedback,
+   guarded so touch devices don't get a "stuck" hover state */
+@media (hover: hover) and (pointer: fine) {
+  .link6:hover {
+    background-color: var(--wwwungrammarycom-White);
+    box-shadow: 0 18px 42px rgba(17, 17, 17, 0.12);
+    transform: translateY(-2px);
+  }
+}
+
+.link6:active {
+  background-color: var(--color-gainsboro-100);
+  border: 1px solid var(--color-darkslategray-500);
+  box-sizing: border-box;
+}
+
+.book-a-discovery {
+  position: relative;
+  font-size: var(--fs-16);
+  letter-spacing: -0.16px;
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: var(--color-black);
+  text-align: center;
+}
+
+.svg-icon {
+  position: relative;
+  display: block;
+  width: var(--width-19);
+  height: var(--height-19);
+  gap: var(--gap-0);
+}
+
+@media screen and (max-width: 1200px) {
+  .global-cta {
+    padding-top: 99px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .lets-build-something-container {
+    font-size: var(--fs-51);
+    line-height: var(--lh-61);
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .decorative-elements {
+    transform: scale(0.55);
+    transform-origin: top center;
+    bottom: -420px;
+    left: -80px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .decorative-elements {
+    transform: scale(0.4);
+    bottom: -260px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .global-cta {
+    gap: 104px;
+  }
+
+  .decorative-elements {
+    transform: scale(0.3);
+    transform-origin: top center;
+    bottom: -160px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .decorative-elements {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .global-cta {
+    gap: var(--gap-52);
+  }
+
+  .frame-parent {
+    gap: var(--gap-22);
+  }
+
+  .lets-build-something-container {
+    font-size: var(--fs-38);
+    line-height: var(--lh-46);
+  }
+
+  .lets-build-something,
+  .people-remember {
+    letter-spacing: 0;
+  }
+}

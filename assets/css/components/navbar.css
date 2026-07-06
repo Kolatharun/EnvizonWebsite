@@ -56,9 +56,14 @@
     transition:var(--transition-fast);
 }
 
-.nav-links a.active,
-.nav-links a:hover{
+.nav-links a.active{
     color:var(--accent);
+}
+
+@media(hover:hover) and (pointer:fine){
+    .nav-links a:hover{
+        color:var(--accent);
+    }
 }
 
 /* right-side actions (CTA + mobile toggle) */
@@ -212,12 +217,14 @@
     transform:translate(-50%,-50%) rotate(-45deg);
 }
 
-.sidebar-close:hover{
-    border-color:var(--accent);
-}
+@media(hover:hover) and (pointer:fine){
+    .sidebar-close:hover{
+        border-color:var(--accent);
+    }
 
-.sidebar-close:hover .sidebar-close-bar{
-    background:var(--accent);
+    .sidebar-close:hover .sidebar-close-bar{
+        background:var(--accent);
+    }
 }
 
 .mobile-nav-links{
@@ -238,10 +245,16 @@
 }
 
 .mobile-nav-links a.active,
-.mobile-nav-links a:hover,
 .mobile-nav-links a:focus-visible{
     color:var(--accent);
     padding-left:var(--space-2xs);
+}
+
+@media(hover:hover) and (pointer:fine){
+    .mobile-nav-links a:hover{
+        color:var(--accent);
+        padding-left:var(--space-2xs);
+    }
 }
 
 .mobile-sidebar-cta{
@@ -257,6 +270,14 @@
 
     .nav-toggle{
         display:flex;
+        /* touch-friendly hit area (WCAG 2.5.5) without enlarging the icon itself */
+        width:44px;
+        height:44px;
+    }
+
+    .sidebar-close{
+        width:44px;
+        height:44px;
     }
 
     /* the CTA moves into the sidebar; keep only logo + hamburger in the top bar */
@@ -279,11 +300,6 @@
 
     .logo img{
         width:84px;
-    }
-
-    .nav-toggle{
-        width:32px;
-        height:32px;
     }
 
     .mobile-sidebar{

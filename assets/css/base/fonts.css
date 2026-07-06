@@ -1,0 +1,17 @@
+/* Satoshi (local, used for display headings on the Home and Services pages) */
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../../fonts/Satoshi-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../../fonts/Satoshi-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
