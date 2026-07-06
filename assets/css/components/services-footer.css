@@ -1,0 +1,456 @@
+/* SERVICES PAGE — footer */
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: left;
+  font-size: 429.4px;
+  color: var(--color-lightgray-200);
+  font-family: var(--font-satoshi);
+  display: flex;
+  min-height: 531px;
+  height: auto;
+  padding: clamp(56px, 7vw, 100px) clamp(20px, 5.5vw, 80px);
+  border-radius: clamp(42px, 7.5vw, 108px) clamp(42px, 7.5vw, 108px) 0 0;
+  background-color: var(--color-black);
+  align-self: stretch;
+  width: 100%;
+  gap: var(--gap-60);
+  box-sizing: border-box;
+  box-shadow: var(--shadow-drop-1);
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.footer-graphic-area {
+  display: block;
+  width: var(--width-1440);
+  height: 622.8px;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  transform: rotate(0deg);
+  position: absolute;
+  top: -93.3px;
+  left: 0;
+  flex-shrink: 0;
+}
+
+.footer-graphic-area-child {
+  position: absolute;
+  top: 93.7px;
+  left: -77.7px;
+  flex-shrink: 0;
+  display: block;
+  width: 1081.6px;
+  height: 694.5px;
+}
+
+.footer-graphic-area-item {
+  position: absolute;
+  top: 0;
+  left: 331.6px;
+  z-index: 1;
+  flex-shrink: 0;
+  display: block;
+  width: 1421.3px;
+  height: 912.5px;
+}
+
+.envizon {
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 34.7px;
+  display: block;
+  width: 1567.4px;
+  height: 327.1px;
+  margin: 0;
+  position: absolute;
+  bottom: -115.7px;
+  left: calc(50% - 672.8px);
+  font-size: inherit;
+  font-family: inherit;
+  align-items: center;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.footer-info-block-parent {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  gap: 49px;
+  align-items: flex-start;
+  max-width: 100%;
+  position: relative;
+  top: auto;
+  left: auto;
+  z-index: 3;
+  width: min(1196px, 100%);
+  margin: 0 auto;
+  flex-shrink: 0;
+  font-size: var(--fs-14);
+  color: var(--color-lightgray-100);
+  font-family: var(--font-inter);
+}
+
+.footer-info-block {
+  align-self: stretch;
+  gap: clamp(40px, 8vw, 135px);
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+  height: 261px;
+  width: 339px;
+  flex-direction: column;
+  padding: 0 var(--padding-0) 0;
+  box-sizing: border-box;
+  gap: 62px;
+}
+
+.mask-group-icon {
+  position: relative;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  width: 225px;
+  height: var(--height-58);
+}
+
+.container-parent {
+  gap: var(--gap-32);
+  flex-shrink: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+}
+
+.container2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  gap: var(--gap-0);
+}
+
+.designing-digital-experiences {
+  align-self: stretch;
+  position: relative;
+  line-height: var(--lh-23_1);
+}
+
+.social-icons-block {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-20);
+  width: auto;
+  align-self: unset;
+  height: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.social-icon-wrapper {
+  border-radius: var(--br-100);
+  background-color: var(--color-gray-2500);
+  display: flex;
+  align-items: center;
+  padding: var(--padding-4);
+  box-sizing: border-box;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  gap: var(--gap-8);
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.facebook-icon {
+  position: relative;
+  background-color: var(--test-roan-six-87vercelapp-Fire-Bush);
+  display: block;
+  width: var(--width-24);
+  height: var(--height-24);
+  gap: var(--gap-0);
+  border-radius: 50px;
+}
+
+.twitter-link-wrapper {
+  width: var(--width-32);
+  border-radius: var(--br-100);
+  background-color: var(--color-gray-2500);
+  display: flex;
+  align-items: center;
+  padding: var(--padding-4);
+  box-sizing: border-box;
+  height: auto;
+  gap: var(--gap-8);
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.twitter-icon-container {
+  width: var(--width-23_8);
+  border-radius: var(--br-74_4);
+  background-color: var(--test-roan-six-87vercelapp-Fire-Bush);
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-2_98) var(--padding-2);
+  height: auto;
+  display: flex;
+  gap: var(--gap-5_95);
+  box-sizing: border-box;
+  flex-direction: row;
+}
+
+.twitter {
+  display: flex;
+  gap: var(--gap-5_95);
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 4.5px;
+  padding: 1.49px var(--padding-0);
+  flex: 1;
+  overflow: hidden;
+  max-width: 100%;
+  justify-content: flex-start;
+}
+
+.vector-icon {
+  width: var(--width-17);
+  height: 14.3px;
+  position: relative;
+}
+
+.instagram-icon {
+  position: relative;
+  display: block;
+  width: var(--width-17);
+  height: 17px;
+  gap: var(--gap-0);
+}
+
+.linkedin-logo-wrapper {
+  height: var(--height-24);
+  width: var(--width-24);
+  border-radius: var(--br-74_4);
+  background-color: var(--test-roan-six-87vercelapp-Fire-Bush);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-2_98) var(--padding-2);
+  box-sizing: border-box;
+  gap: var(--gap-5_95);
+  flex-direction: row;
+}
+
+.linkedin-logo-icon {
+  height: var(--height-14);
+  width: var(--width-14);
+  position: relative;
+}
+
+.footer-navigation-grid {
+  display: flex;
+  flex: 1;
+  height: auto;
+  gap: clamp(32px, 7vw, 127px);
+  align-items: center;
+  justify-content: space-between;
+  min-width: 469px;
+  font-size: var(--fs-12);
+  color: var(--color-goldenrod-100);
+}
+
+.container3 {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-0) var(--padding-0) var(--padding-29);
+  box-sizing: border-box;
+  gap: var(--gap-52);
+  height: auto;
+}
+
+.contact {
+  font-weight: 700;
+  letter-spacing: var(--ls-1_2);
+  display: block;
+  position: relative;
+  text-transform: uppercase;
+  align-self: stretch;
+  width: 100%;
+  height: auto;
+}
+
+.container5 {
+  align-self: stretch;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-12);
+  align-items: flex-start;
+  font-size: var(--fs-16);
+  color: var(--color-silver);
+}
+
+.helloenvizonstudiocom {
+  display: block;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  position: relative;
+}
+
+.container6 {
+  width: var(--width-139);
+  padding: var(--padding-0) var(--padding-0) var(--padding-29);
+  box-sizing: border-box;
+}
+
+.container6,
+.container9 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-52);
+  height: auto;
+}
+
+.container9 {
+  width: 129px;
+}
+
+.cro-optimization {
+  display: block;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  white-space: nowrap;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.horizontalborder {
+  display: flex;
+  align-self: stretch;
+  width: 100%;
+  height: auto;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-32) var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--color-darkslategray-200);
+  font-size: var(--fs-13);
+  color: var(--color-silver);
+}
+
+.envizon-studio-all {
+  display: block;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  position: relative;
+}
+
+.container13 {
+  gap: 19.5px;
+  align-self: unset;
+  display: flex;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+}
+
+.link23 {
+  display: flex;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-0);
+}
+
+.privacy {
+  position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer {
+    height: auto;
+    min-height: 531px;
+  }
+
+  .footer-info-block {
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    flex: 1;
+  }
+}
+
+/* the giant "envizon" wordmark is a purely decorative background flourish
+   tuned to the desktop footer's fixed proportions; below 1024px the footer
+   content reflows to variable heights and the watermark can no longer be
+   kept clear of the real nav/contact text, so it is hidden instead */
+@media screen and (max-width: 1024px) {
+  .envizon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .footer-brand,
+  .footer-navigation-grid {
+    min-width: 100%;
+  }
+
+  .footer-navigation-grid,
+  .horizontalborder {
+    flex-wrap: wrap;
+    gap: var(--gap-20);
+  }
+
+  .footer-info-block {
+    flex-direction: column;
+  }
+
+  .footer-navigation-grid {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+/* touch-friendly hit areas for the footer social links (icon graphics stay
+   the same size; only the tappable padding grows) */
+@media screen and (max-width: 1199px) {
+  .social-icon-wrapper,
+  .twitter-link-wrapper,
+  .linkedin-logo-wrapper {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px;
+  }
+}

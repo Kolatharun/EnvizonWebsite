@@ -1,0 +1,228 @@
+/* SERVICES PAGE — hero / client highlight card */
+
+.client-highlight,
+.hero-container {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 100%;
+}
+
+.hero-container {
+  gap: 77.3px;
+  justify-content: flex-start;
+  transform: rotate(0deg);
+}
+
+.client-highlight {
+  gap: clamp(20px, 3.2vw, 40px);
+  flex-shrink: 0;
+  text-align: left;
+  font-size: var(--fs-64);
+  color: var(--color-goldenrod-300);
+  font-family: var(--font-satoshi);
+  align-self: stretch;
+  display: flex;
+  width: 100%;
+  height: auto;
+  transform: rotate(0deg);
+  justify-content: flex-start;
+}
+
+.client-card {
+  align-self: stretch;
+  display: flex;
+  width: 100%;
+  height: auto;
+  transform: rotate(0deg);
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(20px, 3.2vw, 40px);
+  flex-direction: row;
+}
+
+.popl {
+  font-weight: 900;
+  letter-spacing: var(--ls--2_56);
+  line-height: 123%;
+  display: block;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  z-index: 1;
+}
+
+.services-header {
+  display: flex;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-0);
+  align-items: flex-start;
+  transform: rotate(0deg);
+  padding: var(--padding-40) var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+  font-size: var(--fs-20);
+  color: var(--color-black);
+  justify-content: flex-start;
+}
+
+.services-provided {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-28);
+  display: block;
+  width: auto;
+  align-self: unset;
+  height: auto;
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  z-index: 1;
+}
+
+.client-overview-details {
+  display: flex;
+  align-self: stretch;
+  width: 100%;
+  height: auto;
+  gap: clamp(20px, 3.2vw, 40px);
+  align-items: flex-start;
+  justify-content: space-between;
+  transform: rotate(0deg);
+  max-width: 100%;
+  font-size: var(--fs-18);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-inter);
+  flex-direction: row;
+}
+
+.after-gaining-early {
+  line-height: var(--lh-28);
+  display: block;
+  width: 951.5px;
+  height: auto;
+  max-width: 100%;
+  flex: 1 1 560px;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.service-tag-list {
+  font-size: var(--fs-12);
+  color: var(--wwwungrammarycom-Dove-Gray);
+  display: flex;
+  width: auto;
+  min-width: 150px;
+  height: auto;
+  flex-direction: column;
+  gap: var(--gap-16);
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.backgroundborder {
+  border-radius: var(--br-100);
+  background-color: var(--wwwungrammarycom-White);
+  border: var(--border-1);
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--padding-5) var(--padding-12);
+  width: auto;
+  align-self: unset;
+  height: auto;
+  gap: var(--gap-0);
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.strategy {
+  position: relative;
+  font-weight: 500;
+}
+
+.hero-container-child {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1198 / 711;
+  box-shadow: 0 24px 70px rgba(17, 17, 17, 0.08);
+  display: block;
+  align-self: stretch;
+  width: 100%;
+  height: auto;
+  gap: var(--gap-0);
+  border-radius: var(--br-24);
+}
+
+@media screen and (max-width: 1200px) {
+  .hero-container {
+    gap: 39px;
+  }
+
+  .client-overview-details {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .popl {
+    font-size: var(--fs-51);
+    line-height: 63px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .hero-container {
+    gap: var(--gap-19);
+  }
+
+  .client-highlight {
+    gap: var(--gap-16);
+  }
+
+  .client-card,
+  .client-overview-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-tag-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .client-card {
+    flex-wrap: wrap;
+  }
+
+  .popl {
+    font-size: var(--fs-38);
+    line-height: 47px;
+  }
+
+  .services-provided {
+    font-size: var(--fs-16);
+    line-height: var(--lh-22);
+  }
+
+  .hero-container-child {
+    border-radius: 18px;
+  }
+}
