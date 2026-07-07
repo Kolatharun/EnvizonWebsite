@@ -1,0 +1,209 @@
+/* ABOUT — PARTNERSHIPS ("Strategic Partnerships, Not Just Vendor Lists.") */
+
+.about-partnerships{
+    background:#ffffff;
+    padding:120px 0;
+}
+
+.about-partnerships__container{
+    width:min(1200px, calc(100% - 48px));
+    margin:0 auto;
+}
+
+/* ============================= */
+/* HEADER                         */
+/* ============================= */
+
+.about-partnerships__header{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:48px;
+    margin-bottom:64px;
+}
+
+.about-partnerships__title{
+    font-size:64px;
+    font-weight:800;
+    line-height:1.05;
+    letter-spacing:-2px;
+    color:var(--black);
+    max-width:800px;
+}
+
+.about-partnerships__title-accent{
+    color:var(--test-roan-six-87vercelapp-Fire-Bush);
+}
+
+.about-partnerships__link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+    padding-bottom:4px;
+    border-bottom:1px solid var(--black);
+    font-size:15px;
+    font-weight:600;
+    color:var(--black);
+    transition:opacity var(--transition-fast);
+}
+
+@media(hover:hover) and (pointer:fine){
+    .about-partnerships__link:hover{
+        opacity:.6;
+    }
+}
+
+/* ============================= */
+/* CARDS                          */
+/* ============================= */
+/* a plain 3-up grid inside the same 1200px container as the rest of the
+   page — no bleed, no horizontal scroll */
+
+.about-partnerships__cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+}
+
+.partnership-card{
+    opacity:0;
+    transform:translateY(40px);
+    transition:opacity .7s ease, transform .7s ease;
+}
+
+.partnership-card.is-visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.partnership-card:nth-child(1){ transition-delay:0ms; }
+.partnership-card:nth-child(2){ transition-delay:100ms; }
+.partnership-card:nth-child(3){ transition-delay:200ms; }
+
+.partnership-card__media{
+    position:relative;
+    aspect-ratio:380/250;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+    transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.partnership-card:hover .partnership-card__media{
+    transform:translateY(-6px);
+    box-shadow:0 16px 36px rgba(0,0,0,.1);
+}
+
+.partnership-card__media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.partnership-card__label{
+    position:absolute;
+    left:20px;
+    bottom:20px;
+    font-size:20px;
+    font-weight:700;
+    color:#fff;
+}
+
+.partnership-card__label span{
+    font-weight:400;
+    opacity:.85;
+}
+
+.partnership-card__category{
+    margin-top:28px;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    color:var(--black);
+}
+
+.partnership-card__desc{
+    margin-top:12px;
+    font-size:15px;
+    line-height:1.6;
+    color:var(--text);
+}
+
+.partnership-card__tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:20px 0 0;
+    list-style:none;
+    padding:0;
+}
+
+.partnership-card__tag{
+    padding:8px 16px;
+    border-radius:var(--radius-pill);
+    background:var(--color-whitesmoke-200);
+    font-size:13px;
+    color:#333;
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
+@media(max-width:1024px){
+    .about-partnerships{
+        padding:96px 0;
+    }
+
+    .about-partnerships__title{
+        font-size:48px;
+    }
+
+    .about-partnerships__header{
+        margin-bottom:48px;
+    }
+
+    .about-partnerships__cards{
+        gap:24px;
+    }
+}
+
+@media(max-width:768px){
+    .about-partnerships__header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .about-partnerships__cards{
+        grid-template-columns:repeat(2, 1fr);
+        gap:20px;
+    }
+}
+
+@media(max-width:600px){
+    .about-partnerships{
+        padding:64px 0;
+    }
+
+    .about-partnerships__title{
+        font-size:34px;
+        letter-spacing:-1px;
+    }
+
+    .about-partnerships__header{
+        margin-bottom:32px;
+    }
+
+    .about-partnerships__cards{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .partnership-card__media{
+        aspect-ratio:4/3;
+    }
+}

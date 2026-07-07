@@ -1,0 +1,166 @@
+/* ABOUT — HERO ("Single place for all of your ideas.") */
+
+.about-hero{
+    position:relative;
+    padding:170px 0 100px;
+    overflow:hidden;
+    background:
+        radial-gradient(700px 460px at -6% -22%, #FFE9C2 0%, rgba(255,233,194,0) 70%),
+        radial-gradient(700px 460px at 106% -22%, #FFE9C2 0%, rgba(255,233,194,0) 70%),
+        #ffffff;
+}
+
+.about-hero__container{
+    width:min(1200px, calc(100% - 48px));
+    margin:0 auto;
+}
+
+/* ============================= */
+/* HEADING + INTRO TEXT           */
+/* ============================= */
+
+.about-hero__top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:80px;
+}
+
+.about-hero__title{
+    font-size:64px;
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:-2px;
+    color:var(--black);
+    max-width:600px;
+}
+
+.about-hero__accent{
+    color:var(--test-roan-six-87vercelapp-Fire-Bush);
+}
+
+.about-hero__text{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text);
+    max-width:46ch;
+    flex-shrink:0;
+}
+
+/* ============================= */
+/* IMAGE GALLERY                  */
+/* ============================= */
+/* four uneven, bottom-aligned columns — flex-grow is set to each image's
+   approximate source width so the row reproduces the reference's uneven
+   column proportions instead of an even 4-up grid */
+
+.about-hero__gallery{
+    display:flex;
+    align-items:flex-end;
+    gap:clamp(16px, 3vw, 44px);
+}
+
+.about-hero__gallery-item{
+    margin:0;
+    flex-shrink:0;
+    border-radius:16px;
+    overflow:hidden;
+    background:#eee;
+}
+
+.about-hero__gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.about-hero__gallery-item--1{
+    flex:239 1 0;
+    aspect-ratio:239/512;
+}
+
+.about-hero__gallery-item--2{
+    flex:293 1 0;
+    aspect-ratio:293/376;
+}
+
+.about-hero__gallery-item--3{
+    flex:277 1 0;
+    aspect-ratio:277/274;
+}
+
+.about-hero__gallery-item--4{
+    flex:254 1 0;
+    aspect-ratio:254/382;
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
+@media(max-width:1200px){
+    .about-hero__title{
+        max-width:520px;
+    }
+}
+
+@media(max-width:1024px){
+    .about-hero{
+        padding:150px 0 80px;
+    }
+
+    .about-hero__top{
+        margin-bottom:56px;
+    }
+
+    .about-hero__title{
+        font-size:44px;
+        letter-spacing:-1px;
+    }
+}
+
+@media(max-width:860px){
+    .about-hero__top{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .about-hero__title,
+    .about-hero__text{
+        max-width:none;
+    }
+
+    .about-hero__gallery{
+        flex-wrap:wrap;
+        gap:16px;
+    }
+
+    .about-hero__gallery-item{
+        flex:1 1 calc(50% - 8px);
+    }
+}
+
+@media(max-width:480px){
+    .about-hero{
+        padding:140px 0 56px;
+    }
+
+    .about-hero__title{
+        font-size:34px;
+        letter-spacing:-.5px;
+    }
+
+    .about-hero__top{
+        margin-bottom:40px;
+    }
+
+    .about-hero__gallery{
+        gap:12px;
+    }
+
+    .about-hero__gallery-item{
+        flex:1 1 100%;
+    }
+}
