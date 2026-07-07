@@ -1,0 +1,328 @@
+/* ABOUT — VALUES ("People First, Result Oriented") */
+/* Pinned stacked-card scroll effect mirrors the homepage's
+   .services-scroll / craft-services.css pattern (same GSAP ScrollTrigger
+   technique, same radius/shadow/spacing language), re-skinned for this
+   section's checklist-style cards. */
+
+.about-values{
+    --values-gold:#FBDD8D;
+    background:var(--color-whitesmoke-100);
+    padding:var(--space-xl) 0 96px;
+}
+
+.about-values__container{
+    width:min(1200px, calc(100% - 48px));
+    margin:0 auto;
+}
+
+/* ============================= */
+/* HEADER                         */
+/* ============================= */
+
+.about-values__header{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:flex-end;
+    margin-bottom:64px;
+}
+
+.about-values__eyebrow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.about-values__eyebrow-line{
+    width:28px;
+    height:2px;
+    background:var(--color-gold-100);
+    flex-shrink:0;
+}
+
+.about-values__eyebrow span{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text);
+}
+
+.about-values__title{
+    font-size:clamp(2.5rem, 1.5rem + 3.5vw, 4rem);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-0.02em;
+    color:var(--black);
+}
+
+.about-values__title-accent{
+    color:var(--test-roan-six-87vercelapp-Fire-Bush);
+}
+
+.about-values__aside{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:24px;
+}
+
+.about-values__cta{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    padding:6px 6px 6px 26px;
+    border-radius:var(--radius-pill);
+    background:#fff;
+    border:1px solid var(--border-light);
+    font-size:14px;
+    font-weight:600;
+    color:#111;
+    transition:border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.about-values__cta-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#111;
+    color:#fff;
+    font-size:14px;
+    flex-shrink:0;
+    transition:background var(--transition-fast);
+}
+
+@media(hover:hover) and (pointer:fine){
+    .about-values__cta:hover{
+        border-color:var(--test-roan-six-87vercelapp-Fire-Bush);
+        box-shadow:0 8px 20px rgba(0,0,0,.08);
+        transform:translateY(-2px);
+    }
+
+    .about-values__cta:hover .about-values__cta-icon{
+        background:var(--test-roan-six-87vercelapp-Fire-Bush);
+        color:#111;
+    }
+}
+
+.about-values__text{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text);
+    max-width:420px;
+}
+
+.about-values__divider{
+    height:3px;
+    border:0;
+    margin:0 0 0px;
+    background:var(--color-gold-100);
+}
+
+/* ============================= */
+/* PINNED STACKED CARDS           */
+/* ============================= */
+/* stage height is sized to this section's actual (compact) card content —
+   not borrowed from the homepage's services-scroll, whose cards carry far
+   more copy (impact box + tag list) and need a much taller stage */
+
+.about-values__stage{
+    position:relative;
+    height:clamp(320px, 38vh, 380px);
+    margin-top:48px;
+    overflow:visible;
+}
+
+.about-values__track{
+    position:relative;
+    height:100%;
+}
+
+.value-card{
+    position:absolute;
+    inset:0;
+    height:100%;
+    will-change:transform, opacity, filter;
+    backface-visibility:hidden;
+    box-shadow:none !important;
+}
+
+.value-card__inner{
+    width:100%;
+    height:100%;
+    box-sizing:border-box;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:center;
+    background:#ffffff;
+    border-radius:24px;
+    padding:40px 48px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.05);
+    transition:transform .4s ease, box-shadow .4s ease;
+}
+
+@media(hover:hover){
+    .value-card.is-active .value-card__inner:hover{
+        transform:scale(1.01);
+    }
+}
+
+.value-card__index{
+    display:block;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    color:var(--test-roan-six-87vercelapp-Fire-Bush);
+    margin-bottom:16px;
+}
+
+.value-card__title{
+    font-size:clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+    font-weight:800;
+    line-height:1.15;
+    color:var(--black);
+    margin-bottom:16px;
+}
+
+.value-card__desc{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text);
+    max-width:48ch;
+}
+
+.value-card__label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    margin-bottom:20px;
+}
+
+.value-card__checklist{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.value-card__check-item{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+}
+
+.value-card__check-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:24px;
+    height:24px;
+    flex-shrink:0;
+    margin-top:2px;
+    border-radius:50%;
+    background:var(--values-gold);
+    color:#fff;
+}
+
+.value-card__check-icon svg{
+    width:12px;
+    height:12px;
+}
+
+.value-card__check-text{
+    font-size:16px;
+    line-height:1.6;
+    color:var(--black);
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
+@media(max-width:1024px){
+    .about-values{
+        padding:64px 0 72px;
+    }
+
+    .about-values__header{
+        margin-bottom:48px;
+    }
+
+    .about-values__divider{
+        margin-bottom:48px;
+    }
+
+    .value-card__inner{
+        padding:32px 28px;
+        gap:32px;
+    }
+}
+
+@media(max-width:860px){
+    :root{
+        --about-values-stage-height:clamp(460px, 66vh, 560px);
+    }
+
+    .about-values__stage{
+        height:var(--about-values-stage-height);
+    }
+
+    .about-values__header{
+        grid-template-columns:1fr;
+        gap:32px;
+        align-items:flex-start;
+    }
+
+    .about-values__aside{
+        align-items:flex-start;
+    }
+
+    .about-values__text{
+        max-width:none;
+    }
+
+    .value-card__inner{
+        grid-template-columns:1fr;
+        align-content:start;
+        gap:20px;
+        padding:28px 24px;
+        overflow-y:auto;
+    }
+}
+
+@media(max-width:480px){
+    .about-values{
+        padding:56px 0 56px;
+    }
+
+    .about-values__header{
+        margin-bottom:32px;
+    }
+
+    .about-values__divider{
+        margin-bottom:32px;
+    }
+
+    :root{
+        --about-values-stage-height:clamp(520px, 78vh, 640px);
+    }
+
+    .value-card__inner{
+        padding:22px 18px;
+        border-radius:18px;
+    }
+
+    .value-card__checklist{
+        gap:18px;
+    }
+}

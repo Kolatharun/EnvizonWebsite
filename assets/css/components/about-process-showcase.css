@@ -1,0 +1,290 @@
+/* ABOUT — PROCESS SHOWCASE (Discovery / Strategy / Design / Development / Delivery / Optimization) */
+
+.about-discovery{
+    background:#ffffff;
+    padding:64px 0 120px;
+}
+
+.about-discovery__container{
+    width:min(1200px, calc(100% - 48px));
+    margin:0 auto;
+}
+
+.about-discovery__box{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(280px, 420px) 1fr;
+    gap:80px;
+    align-items:start;
+    padding:64px;
+    border-radius:24px;
+    overflow:hidden;
+    background:radial-gradient(120% 140% at 15% 10%, #3a3025 0%, #14100a 55%, #0d0a05 100%);
+}
+
+/* ============================= */
+/* MEDIA (left / center images)   */
+/* ============================= */
+/* fixed wrappers that never resize or reposition — only the img src swaps
+   per active feature, driven by about-process-showcase.js */
+
+.discovery-media{
+    position:relative;
+    height:420px;
+}
+
+.discovery-media__wrap{
+    position:absolute;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+    transition:opacity .35s ease, transform .35s ease;
+}
+
+.discovery-media__wrap--left{
+    left:0;
+    top:130px;
+    width:190px;
+    height:237px;
+}
+
+.discovery-media__wrap--center{
+    left:220px;
+    top:0;
+    width:160px;
+    height:215px;
+}
+
+.discovery-media__wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.discovery-media__wrap.is-switching{
+    opacity:0;
+    transform:translateX(20px);
+}
+
+/* ============================= */
+/* CONTENT (active card + list)   */
+/* ============================= */
+
+.discovery-content{
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+}
+
+.discovery-card{
+    width:100%;
+    max-width:528px;
+    min-height:183px;
+    box-sizing:border-box;
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    padding:24px;
+    border-radius:12px;
+    background:#ffffff;
+    box-shadow:0 20px 40px -18px rgba(0,0,0,.35), 0 6px 16px -8px rgba(0,0,0,.15);
+    transition:opacity .35s ease, transform .35s ease;
+}
+
+.discovery-card.is-switching{
+    opacity:0;
+    transform:translateY(8px);
+}
+
+.discovery-card__icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    flex-shrink:0;
+    border-radius:10px;
+    background:var(--color-gold-100);
+    color:#111;
+}
+
+.discovery-card__icon svg{
+    width:22px;
+    height:22px;
+}
+
+.discovery-card__body{
+    min-width:0;
+}
+
+.discovery-card__title{
+    font-size:20px;
+    font-weight:700;
+    color:var(--black);
+    margin-bottom:8px;
+}
+
+.discovery-card__desc{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--text);
+    margin-bottom:16px;
+}
+
+.discovery-card__cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:var(--radius-pill);
+    background:#111;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    transition:background var(--transition-fast);
+}
+
+@media(hover:hover) and (pointer:fine){
+    .discovery-card__cta:hover{
+        background:#000;
+    }
+}
+
+/* ============================= */
+/* INACTIVE LIST                  */
+/* ============================= */
+
+.discovery-list{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.discovery-item{
+    display:block;
+    width:100%;
+    background:none;
+    border:0;
+    padding:0;
+    text-align:left;
+    font:inherit;
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .35s ease, transform .35s ease;
+}
+
+.discovery-item.is-visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.discovery-item__title{
+    display:block;
+    font-size:18px;
+    font-weight:700;
+    color:rgba(255,255,255,.5);
+    margin-bottom:6px;
+    transition:color var(--transition-fast);
+}
+
+.discovery-item__desc{
+    display:block;
+    font-size:14px;
+    line-height:1.6;
+    color:rgba(255,255,255,.32);
+    transition:color var(--transition-fast);
+}
+
+@media(hover:hover) and (pointer:fine){
+    .discovery-item:hover .discovery-item__title{
+        color:rgba(255,255,255,.85);
+    }
+
+    .discovery-item:hover .discovery-item__desc{
+        color:rgba(255,255,255,.55);
+    }
+}
+
+.discovery-item:focus-visible{
+    outline:2px solid var(--color-gold-100);
+    outline-offset:4px;
+    border-radius:4px;
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
+@media(max-width:1024px){
+    .about-discovery__box{
+        grid-template-columns:minmax(240px, 340px) 1fr;
+        gap:48px;
+        padding:48px;
+    }
+
+    .discovery-media{
+        height:380px;
+    }
+}
+
+@media(max-width:860px){
+    .about-discovery__box{
+        grid-template-columns:1fr;
+        padding:32px;
+    }
+
+    .discovery-media{
+        width:100%;
+        height:380px;
+        max-width:400px;
+        margin:0 auto;
+    }
+}
+
+@media(max-width:600px){
+    .about-discovery{
+        padding:48px 0 64px;
+    }
+
+    .about-discovery__box{
+        padding:24px;
+        border-radius:18px;
+        gap:32px;
+    }
+
+    .discovery-media{
+        width:100%;
+        height:260px;
+        max-width:260px;
+        margin:0 auto;
+    }
+
+    .discovery-media__wrap--left{
+        width:150px;
+        height:190px;
+        top:70px;
+        left:0;
+    }
+
+    .discovery-media__wrap--center{
+        width:120px;
+        height:160px;
+        top:0;
+        left:130px;
+    }
+
+    .discovery-card{
+        max-width:none;
+        min-height:0;
+        flex-direction:column;
+    }
+
+    .discovery-list{
+        gap:24px;
+    }
+}
