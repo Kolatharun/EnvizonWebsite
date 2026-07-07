@@ -6,7 +6,7 @@
   z-index: 1;
   text-align: left;
   font-size: 429.4px;
-  color: var(--color-lightgray-200);
+  color: rgba(214, 214, 214, 0.17);
   font-family: var(--font-satoshi);
   display: flex;
   min-height: 531px;
@@ -73,6 +73,7 @@
   align-items: center;
   z-index: 2;
   flex-shrink: 0;
+  color: rgba(214, 214, 214, 0.17) !important;
 }
 
 .footer-info-block-parent {
