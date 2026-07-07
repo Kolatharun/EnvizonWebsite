@@ -1,0 +1,135 @@
+/* Design tokens for the Clients page (colors, spacing, type scale) */
+
+:root {
+  /* Common Style Variables */
+
+  /* Color */
+  --color-black: #000;
+  --color-blanchedalmond: #fff2d0;
+  --color-darkslategray-100: #454545;
+  --color-darkslategray-200: #404040;
+  --color-darkslategray-300: rgba(74, 74, 74, 0.16);
+  --color-darkslategray-400: rgba(51, 51, 51, 0.04);
+  --color-dimgray: #5d5d5d;
+  --color-gainsboro-100: #e6e6e6;
+  --color-gold-100: #ffc221;
+  --color-gold-200: rgba(255, 194, 33, 0.14);
+  --color-gold-300: rgba(255, 194, 33, 0.22);
+  --color-goldenrod-100: #fab330;
+  --color-goldenrod-200: #e6a633;
+  --color-goldenrod-300: #e6a632;
+  --color-goldenrod-400: #e4a024;
+  --color-gray-100: #121212;
+  --color-gray-200: #051326;
+  --color-gray-300: #161003;
+  --color-gray-400: rgba(255, 255, 255, 0.4);
+  --color-gray-500: rgba(23, 23, 23, 0.16);
+  --color-gray-600: rgba(0, 0, 0, 0.8);
+  --color-gray-700: rgba(0, 0, 0, 0.04);
+  --color-gray-800: rgba(31, 31, 31, 0.89);
+  --color-gray-900: rgba(255, 255, 255, 0.1);
+  --color-lightgray-100: #d6d6d6;
+  --color-lightgray-200: #cfcfcf;
+  --color-lightgray-300: rgba(207, 207, 207, 0.09);
+  --color-silver: #c6c6c6;
+  --color-wheat: #fde7c0;
+  --color-whitesmoke: #f7f7f7;
+  --test-roan-six-87vercelapp-Cod-Gray: #111;
+  --test-roan-six-87vercelapp-Mercury: #e8e8e8;
+  --wwwungrammarycom-Dove-Gray: #666;
+  --wwwungrammarycom-White: #fff;
+
+  /* Gap */
+  --gap-12: 12px;
+  --gap-16: 16px;
+  --gap-18: 18px;
+  --gap-19: 19px;
+  --gap-20: 20px;
+  --gap-30: 30px;
+  --gap-32: 32px;
+  --gap-60: 60px;
+
+  /* Padding */
+  --padding-0: 0px;
+  --padding-1: 1px;
+  --padding-5: 5px;
+  --padding-8: 8px;
+  --padding-16: 16px;
+  --padding-18: 18px;
+  --padding-19: 19px;
+  --padding-20: 20px;
+  --padding-22: 22px;
+  --padding-24: 24px;
+  --padding-26: 26px;
+  --padding-28: 28px;
+  --padding-30: 30px;
+  --padding-31: 31px;
+  --padding-32: 32px;
+  --padding-40: 40px;
+  --padding-64: 64px;
+  --padding-100: 100px;
+  --padding-185: 185px;
+
+  /* BorderRadius */
+  --br-12: 12px;
+  --br-13: 13px;
+  --br-20: 20px;
+  --br-50: 50%;
+  --br-100: 100px;
+  --br-76_4: 76.4px;
+
+  /* Font */
+  --font-inter: Inter, Arial, sans-serif;
+  --font-satoshi: Satoshi, Arial, sans-serif;
+
+  /* FontSize */
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-17: 17px;
+  --fs-21: 21px;
+  --fs-64: 64px;
+  --fs-18_9: 18.9px;
+
+  /* Shadows */
+  --shadow-drop: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  --shadow-drop-1: -4px 4px 6.2px rgba(0, 0, 0, 0.12);
+  --shadow-drop-2: 0px -3px 42.6px 3px rgba(0, 0, 0, 0.12);
+  --shadow-drop-3: 0px -3px 6.2px rgba(0, 0, 0, 0.12);
+  --shadow-drop-4: 0px 0px 52.4px rgba(0, 0, 0, 0.12);
+
+  /* WidthHeights */
+  --height-0: 0px;
+  --height-1: 1px;
+  --height-3: 3px;
+  --height-15: 15px;
+  --height-19: 19px;
+  --height-28: 28px;
+  --height-0_7: 0.7px;
+  --height-0_9: 0.9px;
+  --height-1_2: 1.2px;
+  --height-1_4: 1.4px;
+  --height-1_5: 1.5px;
+  --height-185_6: 185.6px;
+  --width-0: 0px;
+  --width-2: 2px;
+  --width-10: 10px;
+  --width-59: 59px;
+  --width-387: 387px;
+  --width-0_9: 0.9px;
+  --width-1_4: 1.4px;
+  --width-1_5: 1.5px;
+  --width-1_7: 1.7px;
+  --width-123_6: 123.6px;
+  --width-185_6: 185.6px;
+
+  /* LineHeights */
+  --lh-22: 22px;
+  --lh-28: 28px;
+  --lh-14_6: 14.6px;
+
+  /* LetterSpacings */
+  --ls-0_14: 0.14px;
+
+  --left-0: 0px;
+  --top-0: 0px;
+}
