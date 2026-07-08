@@ -1,0 +1,132 @@
+/* WORK — LOGO GRID ("Cultivate loyalty, recognition, and growth...") */
+/* Cards reuse the .brand-card component/styles defined in
+   work-featured-brands.css — this file only owns the section chrome
+   (heading, 4-up grid track, pagination controls). */
+
+.work-logo-grid{
+    background:#ffffff;
+    padding:100px 0 120px;
+}
+
+.work-logo-grid__container{
+    width:min(1200px, calc(100% - 48px));
+    margin:0 auto;
+}
+
+.work-logo-grid__heading{
+    max-width:640px;
+    margin:0 auto 56px;
+    font-size:32px;
+    font-weight:700;
+    line-height:1.5;
+    text-align:center;
+    color:var(--black);
+}
+
+.work-logo-grid__heading .is-muted{
+    color:#b3b3b3;
+}
+
+.work-logo-grid__grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:32px 24px;
+    margin-bottom:48px;
+}
+
+/* these cards render narrower than the 3-up featured-brands grid (same
+   aspect-ratio, smaller absolute size), so the notch needs a smaller
+   unsafe band to leave room for the (fixed-size) name label */
+.work-logo-grid .brand-card{
+    --chamfer-y:36%;
+}
+
+.work-logo-grid .brand-card:hover,
+.work-logo-grid .brand-card:focus-within{
+    --chamfer-y:16%;
+}
+
+.work-logo-grid .brand-card__name{
+    font-size:19px;
+}
+
+/* ============================= */
+/* PAGINATION                     */
+/* ============================= */
+
+.work-logo-grid__pagination{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:24px;
+}
+
+.work-logo-grid__arrow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    flex-shrink:0;
+    border-radius:50%;
+    border:1px solid var(--border-light);
+    background:var(--white);
+    color:var(--black);
+    cursor:pointer;
+    transition:background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.work-logo-grid__arrow svg{
+    width:18px;
+    height:18px;
+}
+
+@media(hover:hover) and (pointer:fine){
+    .work-logo-grid__arrow:hover:not(:disabled){
+        background:var(--primary);
+        border-color:var(--primary);
+        color:#ffffff;
+        transform:scale(1.06);
+    }
+}
+
+.work-logo-grid__arrow:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+}
+
+.work-logo-grid__page-indicator{
+    min-width:48px;
+    text-align:center;
+    font-size:14px;
+    font-weight:600;
+    color:var(--text);
+    letter-spacing:.02em;
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
+@media(max-width:900px){
+    .work-logo-grid__grid{
+        grid-template-columns:repeat(2, 1fr);
+        gap:20px;
+    }
+}
+
+@media(max-width:600px){
+    .work-logo-grid{
+        padding:72px 0 88px;
+    }
+
+    .work-logo-grid__heading{
+        font-size:24px;
+        margin-bottom:40px;
+    }
+
+    .work-logo-grid__grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+}
