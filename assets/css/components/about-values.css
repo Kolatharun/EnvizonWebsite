@@ -326,3 +326,142 @@
         gap:18px;
     }
 }
+
+/* Custom style enhancements for services.html service card display */
+.value-card__col--left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: flex-start;
+}
+
+.value-card__companies {
+    margin-top: auto;
+    width: 100%;
+}
+
+.value-card__companies-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted, #777);
+    margin-bottom: 16px;
+}
+
+.value-card__companies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.value-card__company-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: #f3f3f3;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.value-card__company-arrow {
+    font-size: 11px;
+    opacity: 0.7;
+    transition: transform 0.2s ease;
+}
+
+.value-card__company-pill:hover {
+    background: #111;
+    color: #fff;
+}
+
+.value-card__company-pill:hover .value-card__company-arrow {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+@media(max-width: 860px) {
+    .value-card__col--left {
+        height: auto;
+        gap: 32px;
+    }
+    .value-card__companies {
+        margin-top: 16px;
+    }
+}
+
+/* Custom sizing and fixes for services.html cards to prevent content overflow */
+#servicesValues {
+    --values-gold: var(--test-roan-six-87vercelapp-Fire-Bush, #e09f2d);
+}
+
+#servicesValues .about-values__stage {
+    height: var(--services-values-stage-height, clamp(460px, 55vh, 540px));
+}
+
+#servicesValues .value-card__inner {
+    padding: 32px 40px;
+    align-items: center;
+    overflow-y: auto;
+}
+
+#servicesValues .value-card__inner::-webkit-scrollbar {
+    width: 6px;
+}
+#servicesValues .value-card__inner::-webkit-scrollbar-track {
+    background: transparent;
+}
+#servicesValues .value-card__inner::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#servicesValues .value-card__checklist {
+    gap: 12px;
+}
+
+#servicesValues .value-card__check-item {
+    gap: 12px;
+}
+
+#servicesValues .value-card__label {
+    margin-bottom: 16px;
+}
+
+/* Custom CSS variables for responsive stage height */
+:root {
+    --services-values-stage-height: clamp(460px, 55vh, 540px);
+}
+
+@media(max-width: 860px) {
+    :root {
+        --services-values-stage-height: clamp(520px, 70vh, 620px);
+    }
+    #servicesValues .value-card__inner {
+        padding: 24px 24px;
+        align-items: stretch;
+    }
+    #servicesValues .value-card__checklist {
+        gap: 16px;
+    }
+}
+
+@media(max-width: 480px) {
+    :root {
+        --services-values-stage-height: clamp(560px, 80vh, 680px);
+    }
+    #servicesValues .value-card__inner {
+        padding: 20px 18px;
+    }
+}
+
