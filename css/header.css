@@ -31,6 +31,7 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    will-change:width;
 }
 
 .navbar{
@@ -48,6 +49,25 @@
 
 .logo img{
     width:108px;
+    transition:width var(--transition-base);
+}
+
+/* ============================= */
+/* COMPACT (SHRUNK) DESKTOP STATE */
+/* ============================= */
+/* Applied by navbar.js via GSAP once the user scrolls past the compact
+   threshold — the pill narrows down to logo + CTA icon only. */
+
+.navbar-wrapper.is-compact{
+    overflow:hidden;
+}
+
+.navbar-wrapper.is-compact .navbar{
+    padding:0 24px;
+}
+
+.navbar-wrapper.is-compact .logo img{
+    width:90px;
 }
 
 /* desktop nav links */
@@ -55,6 +75,7 @@
 .nav-links{
     display:flex;
     gap:40px;
+    overflow:hidden;
 }
 
 .nav-links a{
@@ -96,10 +117,17 @@
     font-size:12px;
     font-weight:600;
     flex-shrink:0;
+    overflow:hidden;
+    will-change:width;
 }
 
-.header-btn span{
+.header-btn__label{
+    white-space:nowrap;
+}
+
+.header-btn__icon{
     font-size:14px;
+    flex-shrink:0;
 }
 
 /* mobile hamburger toggle */

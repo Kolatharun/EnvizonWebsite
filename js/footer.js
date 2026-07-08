@@ -1,3 +1,5 @@
+import { revealFooter } from '../assets/js/components/scroll-reveals.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const placeholder = document.querySelector('footer.footer');
     if (!placeholder) return;
@@ -8,9 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(html => {
             // Check again in case of parallel execution
             if (placeholder.dataset.loaded === 'true') return;
-            
+
             placeholder.innerHTML = html;
             placeholder.dataset.loaded = 'true';
+
+            // Reveal only now that the real content (and its real height) exists —
+            // wiring this up before the fetch resolves would let ScrollTrigger
+            // measure an empty, zero-height placeholder.
+            revealFooter(placeholder);
         })
         .catch(err => console.error("Error loading footer component:", err));
 });

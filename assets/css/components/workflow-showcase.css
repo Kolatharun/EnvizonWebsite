@@ -125,13 +125,14 @@
      .card-float  → the continuous idle bob animation
      .card-img    → the card's own static rotation (if any) */
 
+/* Position layer only — workflow-showcase.js now owns this element's
+   transform continuously (scroll-scrubbed parallax on top of the entrance
+   scale/opacity tween), so no CSS transition/hover-transform lives here
+   anymore: a CSS transition on `transform` would re-ease every inline update
+   GSAP writes, fighting the scrub and reading as stutter. */
 .workflow-showcase__card{
     position:absolute;
-    transition:transform var(--transition-base);
-}
-
-.workflow-showcase__card:hover{
-    transform:translateY(-8px);
+    will-change:transform, opacity;
 }
 
 .workflow-showcase__card-scale{

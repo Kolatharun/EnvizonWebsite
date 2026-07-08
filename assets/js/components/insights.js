@@ -1,9 +1,10 @@
 /**
  * Envizon Studio - Insights / blog cards
- * Reveals each card on scroll via IntersectionObserver, staggering the
+ * Reveals each card on scroll via GSAP ScrollTrigger, staggering the
  * animation delay per card so they cascade in rather than pop together.
+ * Still drives the same `.is-visible` class + CSS keyframe (insights.css)
+ * as before — only the trigger source changed.
  */
-
 export function initInsights(selector = '.insights') {
     const section = document.querySelector(selector);
     if (!section) return;
@@ -18,20 +19,22 @@ export function initInsights(selector = '.insights') {
         return;
     }
 
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        cards.forEach(card => card.classList.add('is-visible'));
+        return;
+    }
 
-            const card = entry.target;
-            const index = cards.indexOf(card);
-            card.style.animationDelay = `${index * 100}ms`;
-            card.classList.add('is-visible');
-            obs.unobserve(card);
+    gsap.registerPlugin(ScrollTrigger);
+
+    cards.forEach((card, index) => {
+        ScrollTrigger.create({
+            trigger: card,
+            start: 'top 85%',
+            once: true,
+            onEnter: () => {
+                card.style.animationDelay = `${index * 100}ms`;
+                card.classList.add('is-visible');
+            },
         });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -80px 0px'
     });
-
-    cards.forEach(card => observer.observe(card));
 }

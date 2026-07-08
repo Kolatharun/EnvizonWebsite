@@ -124,7 +124,13 @@ export function initServicesScroll(sectionSelector = '#servicesScroll') {
     // toward the start of the pin" while scrolling. ignoreMobileResize tells
     // ScrollTrigger to disregard address-bar-only resizes so they never trigger
     // that refresh in the first place.
-    if (!ScrollTrigger.__envizonNormalized) {
+    // Lenis (assets/js/lenis-init.js) now owns wheel/touch scrolling wholesale and
+    // drives ScrollTrigger through it, which already eliminates the native-inertia
+    // micro-reversal this was working around — layering ScrollTrigger's own
+    // normalizeScroll on top of that makes two systems fight for control of the
+    // scrollbar, which is what actually snaps the whole page back toward the top
+    // mid-scroll. Only fall back to normalizeScroll when Lenis isn't present.
+    if (!ScrollTrigger.__envizonNormalized && !window.lenis) {
         ScrollTrigger.config({ ignoreMobileResize: true });
         ScrollTrigger.normalizeScroll(true);
         ScrollTrigger.__envizonNormalized = true;

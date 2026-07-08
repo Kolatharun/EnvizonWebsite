@@ -6,24 +6,32 @@
     min-height:100dvh;
     display:flex;
     flex-direction:column;
-    padding-top:170px;
+    padding-top:120px;
     padding-bottom:56px;
     overflow:hidden;
 }
 
 .hero-bg{
+    /* taller + offset than the hero itself so the GSAP parallax tween
+       (see hero.js) always has image to reveal, never a hard edge */
     position:absolute;
-    inset:0;
-    background-image:url('../../images/cloud-bg.png');
+    top:-15%;
+    left:0;
+    right:0;
+    height:130%;
+    background-image:url('../../images/BGIMG-HERO.png');
     background-size:cover;
     background-position:center;
     z-index:-1;
+    transform:scale(1.15);
+    will-change:transform;
 }
 
 .hero-content{
-    /* fluid width: capped at 606px, otherwise the viewport minus side gutters */
-    width:min(606px, calc(100% - 32px));
+    /* fluid width: capped at 1040px, otherwise the viewport minus side gutters */
+    width:min(1040px, calc(100% - 32px));
     margin:0 auto;
+    padding-top: 72px;
     text-align:center;
     flex-shrink:0;
 }
@@ -32,18 +40,35 @@
     width:100%;
     font-family:'Satoshi',sans-serif;
     font-weight:900;
-    line-height:1.23;
-    /* fluid scale: 28px at narrow phones up to 62px at desktop, no breakpoint jumps */
-    font-size:clamp(1.75rem, 1rem + 3.2vw, 3.875rem);
-    letter-spacing:clamp(-2.48px, -0.04em, -1px);
+    line-height:1.15;
+    /* fluid scale: 30px at narrow phones up to 72px at desktop, no breakpoint jumps */
+    font-size:clamp(1.875rem, 0.85rem + 4.4vw, 4.5rem);
+    letter-spacing:clamp(-2.48px, -0.03em, -1px);
     color:#000;
     margin:0 auto;
     word-break:keep-all;
     overflow-wrap:break-word;
 }
 
-.hero-title br{
-    display:block;
+.hero-title__line{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    column-gap:0.28em;
+    row-gap:0.12em;
+}
+
+.hero-title__mask{
+    display:inline-block;
+    overflow:hidden;
+    line-height:1.15;
+    padding-bottom:0.1em;
+    margin-bottom:-0.1em;
+}
+
+.hero-title__word{
+    display:inline-block;
+    will-change:transform;
 }
 
 /* keeps "Innovation" (text + styled O) from breaking across lines */
@@ -78,25 +103,25 @@
 }
 
 .hero-content > p{
-    font-size:clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    font-size:clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
     font-weight:400;
     line-height:1.6;
     color:var(--text);
-    margin:20px 0 0 0;
-    max-width:46ch;
+    margin:24px 0 0 0;
+    max-width:52ch;
     margin-left:auto;
     margin-right:auto;
 }
 
 @media(max-width:768px){
     .hero{
-        padding-top:150px;
+        padding-top:110px;
     }
 }
 
 @media(max-width:480px){
     .hero{
-        padding-top:140px;
+        padding-top:100px;
         padding-bottom:32px;
     }
 

@@ -27,8 +27,109 @@ function initStickyHeader() {
     window.addEventListener('scroll', onScroll, { passive: true });
 }
 
+/**
+ * GSAP-driven scroll behavior for the desktop pill navbar:
+ *  - hides on scroll down, reveals on scroll up (classic "hide on scroll")
+ *  - shrinks to a compact logo+icon pill once the user has scrolled well
+ *    past the hero, then grows back to full width on the way up
+ * Runs only on desktop widths — mobile/tablet keep the hamburger layout.
+ */
+function initScrollBehavior() {
+    if (typeof gsap === 'undefined') return;
+
+    const header = document.querySelector('.header');
+    const wrapper = document.querySelector('.navbar-wrapper');
+    const navLinks = document.querySelector('.nav-links');
+    const ctaLabel = document.querySelector('.header-btn__label');
+    const logoImg = document.querySelector('.logo img');
+    if (!header || !wrapper) return;
+
+    const REVEAL_ZONE = 24;   // always fully shown within this many px of the top
+    const COMPACT_AT = 260;   // scroll distance before the pill shrinks
+    const COMPACT_WIDTH = 200; // ~15-18% of the ~1225px full pill width
+    const desktopQuery = window.matchMedia('(min-width: 1025px)');
+
+    let expandedWidth = wrapper.getBoundingClientRect().width;
+    let isCompact = false;
+    let isHidden = false;
+    let lastY = window.scrollY;
+
+    const refreshExpandedWidth = () => {
+        if (!isCompact) expandedWidth = wrapper.getBoundingClientRect().width;
+    };
+    window.addEventListener('resize', refreshExpandedWidth);
+
+    const setCompact = (on) => {
+        if (on === isCompact || !desktopQuery.matches) return;
+        isCompact = on;
+        /* only touch the "width" tween on wrapper — it also carries an
+           independent yPercent/autoAlpha tween for the hide-on-scroll
+           behavior that must not be interrupted here */
+        gsap.killTweensOf(wrapper, 'width');
+        gsap.killTweensOf(logoImg);
+        const tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
+        const compactWidth = Math.max(850, Math.min(expandedWidth * 0.88, 1080));
+
+        if (on) {
+            wrapper.classList.add('is-compact');
+            tl.to(logoImg, { width: 90, duration: .5 }, 0)
+              .to(wrapper, { width: compactWidth, duration: .55 }, 0);
+        } else {
+            tl.to(wrapper, { width: expandedWidth, duration: .55 }, 0)
+              .to(logoImg, { width: 108, duration: .5 }, 0)
+              .call(() => wrapper.classList.remove('is-compact'));
+        }
+    };
+
+    const setHidden = (on) => {
+        if (on === isHidden) return;
+        isHidden = on;
+        /* animate the wrapper, not .header itself — .header carries the
+           CSS translateX(-50%) centering transform under .is-sticky, and
+           letting GSAP touch that same transform would bake the stale
+           x-offset into an inline style once yPercent takes over */
+        gsap.to(wrapper, {
+            yPercent: on ? -220 : 0,
+            autoAlpha: on ? 0 : 1,
+            duration: on ? .5 : .55,
+            ease: on ? 'power3.in' : 'power3.out',
+            overwrite: 'auto'
+        });
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            const y = window.scrollY;
+            const goingDown = y > lastY;
+
+            if (y <= REVEAL_ZONE) {
+                setHidden(false);
+                setCompact(false);
+            } else {
+                setHidden(desktopQuery.matches ? goingDown : goingDown && y > 80);
+                setCompact(y > COMPACT_AT);
+            }
+
+            lastY = y;
+            ticking = false;
+        });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    desktopQuery.addEventListener('change', () => {
+        setCompact(false);
+        setHidden(false);
+        refreshExpandedWidth();
+    });
+}
+
 export function initNavbar() {
     initStickyHeader();
+    initScrollBehavior();
 
     const toggle = document.querySelector('.nav-toggle');
     const sidebar = document.querySelector('.mobile-sidebar');
