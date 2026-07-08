@@ -1,4 +1,4 @@
-/* WORK — FEATURED BRANDS (client logo / project card grid) */
+/* PROJECTS — FEATURED BRANDS (client logo / project card grid) */
 /* Card shape: a colored media tile with a white "tag" panel folded onto its
    bottom edge. The panel's top-left corner is chamfered off (clip-path) so
    the media color peeks through — on hover the panel grows upward and the
@@ -6,12 +6,12 @@
    the project's accent. Both states share the same clip-path point count so
    the change animates smoothly instead of jumping. */
 
-.work-featured-brands{
+.projects-featured-brands{
     background:#ffffff;
     padding:0 0 110px;
 }
 
-.work-featured-brands__container{
+.projects-featured-brands__container{
     width:min(1200px, calc(100% - 48px));
     margin:0 auto;
 }
@@ -28,7 +28,7 @@
     border:0;
 }
 
-.work-featured-brands__grid{
+.projects-featured-brands__grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
     gap:32px 24px;
@@ -168,18 +168,18 @@
 /* ============================= */
 
 @media(max-width:900px){
-    .work-featured-brands__grid{
+    .projects-featured-brands__grid{
         grid-template-columns:repeat(2, 1fr);
         gap:20px;
     }
 }
 
 @media(max-width:560px){
-    .work-featured-brands{
+    .projects-featured-brands{
         padding:0 0 72px;
     }
 
-    .work-featured-brands__grid{
+    .projects-featured-brands__grid{
         grid-template-columns:1fr;
         gap:20px;
     }

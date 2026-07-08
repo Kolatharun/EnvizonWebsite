@@ -40,13 +40,13 @@
           href="css/header.css">
 
     <link rel="stylesheet"
-          href="assets/css/components/work-hero.css">
+          href="assets/css/components/projects-hero.css">
 
     <link rel="stylesheet"
-          href="assets/css/components/work-featured-brands.css">
+          href="assets/css/components/projects-featured-brands.css">
 
     <link rel="stylesheet"
-          href="assets/css/components/work-logo-grid.css">
+          href="assets/css/components/projects-logo-grid.css">
 
     <link rel="stylesheet"
           href="assets/css/components/stats-highlight.css">
@@ -66,18 +66,18 @@
 <header class="header"></header>
 
 <!-- Brands That Lead & Inspire Industries -->
-<section class="work-hero" aria-label="Brands that lead and inspire industries">
+<section class="projects-hero" aria-label="Brands that lead and inspire industries">
 
-    <div class="work-hero__container">
+    <div class="projects-hero__container">
 
-        <div class="work-hero__top">
+        <div class="projects-hero__top">
 
-            <h1 class="work-hero__title">
-                <span class="work-hero__accent">Brands</span> That Lead &amp;<br>
-                <span class="work-hero__accent">Inspire</span> Industries
+            <h1 class="projects-hero__title">
+                <span class="projects-hero__accent">Brands</span> That Lead &amp;<br>
+                <span class="projects-hero__accent">Inspire</span> Industries
             </h1>
 
-            <p class="work-hero__text">
+            <p class="projects-hero__text">
                 We combine strategy, design, technology, and storytelling to
                 build experiences that create measurable business impact.
             </p>
@@ -89,41 +89,41 @@
 </section>
 
 <!-- Featured brand / project grid -->
-<section class="work-featured-brands" aria-label="Featured client work">
+<section class="projects-featured-brands" aria-label="Featured client work">
 
-    <div class="work-featured-brands__container">
+    <div class="projects-featured-brands__container">
 
-        <h2 class="work-featured-brands__heading visually-hidden">Featured Client Work</h2>
+        <h2 class="projects-featured-brands__heading visually-hidden">Featured Client Work</h2>
 
-        <div class="work-featured-brands__grid" id="workFeaturedBrandsGrid"></div>
+        <div class="projects-featured-brands__grid" id="projectsFeaturedBrandsGrid"></div>
 
     </div>
 
 </section>
 
 <!-- Cultivate loyalty, recognition, and growth through the power of brand -->
-<section class="work-logo-grid" aria-label="Brands we've helped grow">
+<section class="projects-logo-grid" aria-label="Brands we've helped grow">
 
-    <div class="work-logo-grid__container">
+    <div class="projects-logo-grid__container">
 
-        <h2 class="work-logo-grid__heading">
+        <h2 class="projects-logo-grid__heading">
             Cultivate loyalty, <span class="is-muted">recognition, and</span><br>
             growth <span class="is-muted">through the power of brand.</span>
         </h2>
 
-        <div class="work-logo-grid__grid" id="workLogoGrid"></div>
+        <div class="projects-logo-grid__grid" id="projectsLogoGrid"></div>
 
-        <div class="work-logo-grid__pagination">
+        <div class="projects-logo-grid__pagination">
 
-            <button type="button" class="work-logo-grid__arrow" data-dir="prev" aria-label="Previous projects" disabled>
+            <button type="button" class="projects-logo-grid__arrow" data-dir="prev" aria-label="Previous projects" disabled>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
 
-            <span class="work-logo-grid__page-indicator">
-                <span class="work-logo-grid__page-current">1</span> / <span class="work-logo-grid__page-total">1</span>
+            <span class="projects-logo-grid__page-indicator">
+                <span class="projects-logo-grid__page-current">1</span> / <span class="projects-logo-grid__page-total">1</span>
             </span>
 
-            <button type="button" class="work-logo-grid__arrow" data-dir="next" aria-label="Next projects">
+            <button type="button" class="projects-logo-grid__arrow" data-dir="next" aria-label="Next projects">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
 
@@ -383,11 +383,11 @@
 <script type="module" src="js/footer.js"></script>
 <script type="module" src="assets/js/main.js"></script>
 <script type="module">
-    import { initWorkFeaturedBrands } from './assets/js/components/work-featured-brands.js';
-    import { initWorkLogoGrid } from './assets/js/components/work-logo-grid.js';
+    import { initProjectsFeaturedBrands } from './assets/js/components/projects-featured-brands.js';
+    import { initProjectsLogoGrid } from './assets/js/components/projects-logo-grid.js';
     document.addEventListener('DOMContentLoaded', () => {
-        initWorkFeaturedBrands();
-        initWorkLogoGrid();
+        initProjectsFeaturedBrands();
+        initProjectsLogoGrid();
     });
 </script>
 

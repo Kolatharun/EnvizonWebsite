@@ -1,5 +1,5 @@
 /**
- * Envizon Studio - Work page: Brand logo grid (paginated)
+ * Envizon Studio - Projects page: Brand logo grid (paginated)
  * Renders project cards (same .brand-card markup/CSS as the featured-brands
  * grid) from data, 8 at a time, with Prev/Next pagination controls.
  */
@@ -49,15 +49,15 @@ function renderCard(item){
     return card;
 }
 
-export function initWorkLogoGrid(root = '#workLogoGrid'){
+export function initProjectsLogoGrid(root = '#projectsLogoGrid'){
     const grid = document.querySelector(root);
     if (!grid) return;
 
-    const section = grid.closest('.work-logo-grid');
+    const section = grid.closest('.projects-logo-grid');
     const prevBtn = section.querySelector('[data-dir="prev"]');
     const nextBtn = section.querySelector('[data-dir="next"]');
-    const currentEl = section.querySelector('.work-logo-grid__page-current');
-    const totalEl = section.querySelector('.work-logo-grid__page-total');
+    const currentEl = section.querySelector('.projects-logo-grid__page-current');
+    const totalEl = section.querySelector('.projects-logo-grid__page-total');
 
     const totalPages = Math.max(1, Math.ceil(logos.length / PAGE_SIZE));
     let page = 0;
