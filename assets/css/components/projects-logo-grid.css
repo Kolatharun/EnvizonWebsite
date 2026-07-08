@@ -34,22 +34,6 @@
     margin-bottom:48px;
 }
 
-/* these cards render narrower than the 3-up featured-brands grid (same
-   aspect-ratio, smaller absolute size), so the notch needs a smaller
-   unsafe band to leave room for the (fixed-size) name label */
-.projects-logo-grid .brand-card{
-    --chamfer-y:36%;
-}
-
-.projects-logo-grid .brand-card:hover,
-.projects-logo-grid .brand-card:focus-within{
-    --chamfer-y:16%;
-}
-
-.projects-logo-grid .brand-card__name{
-    font-size:19px;
-}
-
 /* ============================= */
 /* PAGINATION                     */
 /* ============================= */
