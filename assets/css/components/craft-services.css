@@ -310,13 +310,12 @@
 }
 
 @media(max-width:860px){
-    /* stacking the two columns turns the grid gap into a single row gap and
-       nearly doubles the content height that has to fit inside the pinned
-       stage, so the height budget grows and internal spacing tightens to
-       compensate — otherwise the longest service (title+desc+impact+4 tags)
-       overflows the card's bottom edge during the pinned scroll sequence */
+    /* stacking the two columns turns the grid gap into a single row gap, so
+       the card is kept legible-but-compact by shrinking its own type scale
+       and spacing rather than growing the stage to match — a card taller
+       than the viewport reads as "cut off", not spacious */
     :root{
-        --craft-stage-height:clamp(560px, 92vh, 800px);
+        --craft-stage-height:clamp(500px, 76vh, 660px);
     }
 
     .craft-header__grid{
@@ -330,22 +329,59 @@
 
     .service-panel__inner{
         grid-template-columns:1fr;
-        gap:16px;
-        padding:32px 28px;
+        gap:12px;
+        padding:26px 22px;
     }
 
-    .service-panel__index,
+    .service-panel__index{
+        font-size:12px;
+        margin-bottom:6px;
+    }
+
     .service-panel__title{
-        margin-bottom:10px;
+        font-size:22px;
+        margin-bottom:8px;
+    }
+
+    .service-panel__desc{
+        font-size:13px;
+        line-height:1.5;
+        display:-webkit-box;
+        -webkit-line-clamp:3;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
     }
 
     .service-panel__label{
-        margin-bottom:10px;
+        font-size:11px;
+        margin-bottom:8px;
     }
 
     .service-panel__impact{
-        padding:18px 22px;
-        margin-bottom:14px;
+        padding:14px 16px;
+        margin-bottom:10px;
+    }
+
+    .service-panel__impact-label{
+        font-size:10px;
+        margin-bottom:6px;
+    }
+
+    .service-panel__impact-text{
+        font-size:12.5px;
+        display:-webkit-box;
+        -webkit-line-clamp:2;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+    }
+
+    .service-panel__tags{
+        gap:6px;
+    }
+
+    .service-panel__tag{
+        padding:5px 12px;
+        font-size:11px;
     }
 }
 
@@ -355,18 +391,22 @@
     }
 
     :root{
-        --craft-stage-height:clamp(620px, 100vh, 860px);
+        --craft-stage-height:clamp(460px, 70vh, 600px);
     }
 
     .service-panel__inner{
-        padding:22px 18px;
-        gap:12px;
-        border-radius:18px;
+        padding:20px 16px;
+        gap:10px;
+        border-radius:16px;
     }
 
-    .service-panel__index,
     .service-panel__title{
+        font-size:19px;
         margin-bottom:6px;
+    }
+
+    .service-panel__desc{
+        font-size:12.5px;
     }
 
     .service-panel__label{
@@ -374,16 +414,16 @@
     }
 
     .service-panel__impact{
-        padding:14px 16px;
-        margin-bottom:10px;
+        padding:12px 14px;
+        margin-bottom:8px;
     }
 
     .service-panel__tags{
-        gap:8px;
+        gap:6px;
     }
 
     .service-panel__tag{
-        padding:6px 14px;
-        font-size:12px;
+        padding:5px 10px;
+        font-size:11px;
     }
 }

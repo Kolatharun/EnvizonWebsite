@@ -18,15 +18,15 @@ export function initHeroAnimations() {
         gsap.set(words, { opacity: 1, yPercent: 0 });
     } else {
         gsap.set(words, { yPercent: 115, opacity: 0 });
-        // buttons' own starting state, set up front — animated via `.to()` below
-        // rather than `.from()`, which (combined with `stagger`, inside a
-        // timeline) never advances past its first frame on this project's GSAP
-        // build; `.to()` + stagger animates normally.
+        // starting state for the subhead + buttons, set up front — animated via
+        // `.to()` below rather than `.from()`, which never advances past its
+        // first frame on this project's GSAP build when used inside a timeline.
+        gsap.set('.hero-content > p', { y: 24, opacity: 0 });
         gsap.set('.hero-buttons .btn', { scale: 0.6, opacity: 0 });
 
         gsap.timeline({ delay: 0.15, defaults: { ease: 'power4.out' } })
             .to(words, { yPercent: 0, opacity: 1, duration: 1, stagger: 0.06 })
-            .from('.hero-content > p', { y: 24, opacity: 0, duration: .7 }, '-=0.55')
+            .to('.hero-content > p', { y: 0, opacity: 1, duration: .7, clearProps: 'transform' }, '-=0.55')
             // buttons "pop" in individually (scale + opacity, back-out overshoot)
             // rather than rising as one block with the rest of the copy
             .to('.hero-buttons .btn', {

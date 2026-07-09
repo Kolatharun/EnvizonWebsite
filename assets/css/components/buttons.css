@@ -25,6 +25,29 @@
     transition:all .3s ease;
 }
 
+/* Universal SVG Arrow styles */
+.svg-arrow {
+    width: 1em;
+    height: 1em;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    fill: none;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Premium hover translation for arrows */
+.btn:hover .svg-arrow,
+.craft-header__cta:hover .svg-arrow,
+.insights__link:hover .svg-arrow,
+.stats-highlight__link:hover .svg-arrow,
+.header-btn:hover .svg-arrow,
+.link6:hover .svg-arrow {
+    transform: translate(3px, -3px);
+}
+
 .btn-primary{
     padding:clamp(12px, 1.6vw, 16px) clamp(28px, 4vw, 40px);
     border-radius:var(--radius-pill);
