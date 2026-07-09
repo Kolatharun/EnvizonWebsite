@@ -168,4 +168,45 @@ export function initWorkflowShowcase(selector = '.workflow-showcase') {
             },
         });
     });
+
+    // Add smooth hover animations for each floating card
+    cards.forEach((card) => {
+        const img = card.querySelector('.workflow-showcase__card-img');
+        if (!img) return;
+
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                scale: 1.08,
+                duration: 0.4,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+            gsap.to(img, {
+                scale: 1.05,
+                rotation: '+=3',
+                duration: 0.4,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                scale: 1,
+                duration: 0.4,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+            const initialRotate = card.classList.contains('workflow-showcase__card--sprint') ? -6 :
+                                  card.classList.contains('workflow-showcase__card--orange') ? -12 :
+                                  card.classList.contains('workflow-showcase__card--analytics') ? 8 : 0;
+            gsap.to(img, {
+                scale: 1,
+                rotation: initialRotate,
+                duration: 0.4,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+        });
+    });
 }

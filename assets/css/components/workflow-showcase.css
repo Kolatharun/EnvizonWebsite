@@ -165,12 +165,13 @@
 }
 
 .workflow-showcase__card-float{
-    animation:workflow-float 4s ease-in-out infinite alternate;
+    animation:workflow-float 5s ease-in-out infinite alternate;
 }
 
 @keyframes workflow-float{
-    from{ transform:translateY(0); }
-    to{ transform:translateY(6px); }
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(8px) rotate(1.5deg); }
+    100% { transform: translateY(0) rotate(-1.5deg); }
 }
 
 .workflow-showcase__card-img{
@@ -189,7 +190,7 @@
 }
 
 .workflow-showcase__card-img--sprint{
-    width:148px;
+    width:178px;
     transform:rotate(-6deg);
 }
 
@@ -233,7 +234,7 @@
 }
 
 .workflow-showcase__card-img--analytics{
-    width:148px;
+    width:178px;
     transform:rotate(8deg);
 }
 
