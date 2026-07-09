@@ -31,11 +31,14 @@ export function initWorkflowShowcase(selector = '.workflow-showcase') {
         let isToggled = false;
         let isAnimating = false;
 
-        const handleToggle = () => {
+        const handleToggle = (forceState) => {
             if (isAnimating) return;
-            isAnimating = true;
 
-            isToggled = !isToggled;
+            const nextState = (typeof forceState === 'boolean') ? forceState : !isToggled;
+            if (nextState === isToggled) return;
+
+            isAnimating = true;
+            isToggled = nextState;
             toggleBtn.setAttribute('aria-pressed', isToggled ? 'true' : 'false');
 
             const tl = gsap.timeline({
@@ -96,13 +99,25 @@ export function initWorkflowShowcase(selector = '.workflow-showcase') {
             }
         };
 
-        toggleBtn.addEventListener('click', handleToggle);
+        toggleBtn.addEventListener('click', () => handleToggle());
         
         // Add keyboard interaction for accessibility
         toggleBtn.addEventListener('keydown', (e) => {
             if (e.key === ' ' || e.key === 'Enter') {
                 e.preventDefault();
                 handleToggle();
+            }
+        });
+
+        // Automatically trigger toggle to light mode (State B) the first time scrolling down to the section
+        ScrollTrigger.create({
+            trigger: container,
+            start: 'top 65%',
+            once: true,
+            onEnter: () => {
+                gsap.delayedCall(0.5, () => {
+                    handleToggle(true);
+                });
             }
         });
     }

@@ -126,3 +126,67 @@
         overflow:visible;
     }
 }
+
+/* Tablet — 768px to 1024px
+   padding-top floor is set to clear the navbar pill (top offset up to 28px +
+   80px height = ~108px bottom edge) with genuine breathing room beneath it.
+   The base .hero locks to 100dvh with justify-content:space-between, which on
+   tablet (short content, tall viewport) shoves the carousel all the way to
+   the bottom and leaves a dead gap in the middle — so here the section
+   shrinks to fit its content instead, and the carousel sits a fixed distance
+   below the buttons. */
+@media(min-width:768px) and (max-width:1024px){
+    .hero{
+        height:auto;
+        min-height:0;
+        justify-content:flex-start;
+        padding-top:clamp(140px, 15vw, 168px);
+        padding-bottom:clamp(40px, 6vw, 64px);
+    }
+
+    .hero-content{
+        gap:20px;
+        padding-bottom:0;
+    }
+
+    .hero-content > p{
+        max-width:46ch;
+    }
+
+    .hero .carousel-section{
+        margin-top:clamp(32px, 6vw, 56px);
+    }
+}
+
+/* Mobile — up to 767px: tighter rhythm so headline, copy, CTAs and the
+   showcase carousel all sit comfortably within one viewport, while still
+   clearing the floating navbar pill with a visible gap */
+@media(max-width:767px){
+    .hero{
+        padding-top:clamp(132px, 24vw, 156px);
+    }
+
+    .hero-bg{
+        background-position:50% 18%;
+    }
+
+    .hero-content{
+        gap:16px;
+        padding-bottom:28px;
+    }
+
+    .hero-content > p{
+        max-width:34ch;
+    }
+}
+
+@media(max-width:420px){
+    .hero{
+        padding-top:clamp(126px, 26vw, 144px);
+    }
+
+    .hero-content{
+        gap:14px;
+        padding-bottom:24px;
+    }
+}

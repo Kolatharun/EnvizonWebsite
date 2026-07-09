@@ -27,7 +27,11 @@
 .workflow-showcase__container{
     width:100%;
     margin:0 auto;
-    padding:100px 0;
+    /* generous vertical padding is the buffer zone between the centered
+       heading and the edge-anchored floating cards below — too tight here
+       and the cards' rotated corners clip into the heading text (see the
+       768px/1200px overrides for the same reasoning at larger card sizes) */
+    padding:168px 0;
     position:relative;
     display:flex;
     align-items:center;
@@ -258,7 +262,7 @@
     }
 
     .workflow-showcase__container{
-        padding:130px 0;
+        padding:190px 0;
     }
 
     .workflow-showcase__heading{
