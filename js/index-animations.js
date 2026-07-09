@@ -19,7 +19,7 @@ export function initIndexAnimations() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
         // Force opacity on all initial state classes
-        gsap.set('.hero-title, .hero-content p, .hero-buttons, .carousel-section, .workflow-showcase__card, .workflow-showcase__heading, .craft-header__title, .craft-header__text, .craft-header__cta, .stats-highlight__title, .stats-highlight__text, .stats-highlight__card, .integrations__title, .integrations__subtitle, .integrations__item, .how-we-work__title, .how-we-work__text, .how-we-work__cta, .stage-card, .testimonials__title, .testimonials__text, .testimonial-card, .faq__title, .faq-item, .insights__container, .insights__header, .insight-card', { opacity: 1 });
+        gsap.set('.hero-title, .hero-title__word, .hero-content p, .hero-buttons, .carousel-section, .workflow-showcase__card, .workflow-showcase__heading, .craft-header__title, .craft-header__text, .craft-header__cta, .stats-highlight__title, .stats-highlight__text, .stats-highlight__card, .integrations__title, .integrations__subtitle, .integrations__item, .how-we-work__title, .how-we-work__text, .how-we-work__cta, .stage-card, .testimonials__title, .testimonials__text, .testimonial-card, .faq__title, .faq-item, .insights__container, .insights__header, .insight-card', { opacity: 1, yPercent: 0, y: 0, scale: 1 });
         return;
     }
 
@@ -69,39 +69,49 @@ export function initIndexAnimations() {
     }
 
     // ----------------------------------------------------
-    // 2. Hero Section Animations
+    // 2. Hero Section Animations (Masks, Spinners & Parallax bg)
     // ----------------------------------------------------
-    const heroTl = gsap.timeline();
+    const words = gsap.utils.toArray('.hero-title__word');
+    const bg = document.querySelector('.hero-bg');
+    const heroSection = document.querySelector('.hero');
+    const oIcon = document.querySelector('.innovation-o');
 
-    // Line-by-line reveal
-    heroTl.fromTo('.hero-title .title-line-inner',
-        { yPercent: 100 },
-        { yPercent: 0, duration: 1.1, stagger: 0.15, ease: 'power4.out' }
-    );
+    // Make parent wrappers visible
+    gsap.set('.hero-title, .hero-buttons, .carousel-section', { opacity: 1 });
 
-    // Make title visible
-    gsap.set('.hero-title', { opacity: 1 });
+    // Words rise up inside overflow-hidden parent wrappers
+    gsap.set(words, { yPercent: 115, opacity: 0 });
+    gsap.set('.hero-content > p', { y: 24, opacity: 0 });
+    gsap.set('.hero-buttons .btn', { scale: 0.6, opacity: 0 });
 
-    // Paragraph fade-up
-    heroTl.fromTo('.hero-content p',
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
-        '-=0.75'
-    );
+    gsap.timeline({ delay: 0.15, defaults: { ease: 'power4.out' } })
+        .to(words, { yPercent: 0, opacity: 1, duration: 1, stagger: 0.06 })
+        .to('.hero-content > p', { y: 0, opacity: 1, duration: 0.7, clearProps: 'transform' }, '-=0.55')
+        .to('.hero-buttons .btn', { scale: 1, opacity: 1, duration: 0.6, stagger: 0.12, ease: 'back.out(2.2)', clearProps: 'transform' }, '-=0.4');
 
-    // Hero buttons scale up
-    heroTl.fromTo('.hero-buttons',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' },
-        '-=0.6'
-    );
+    // Innovation O Spin & Pulse Glow
+    if (oIcon) {
+        gsap.to(oIcon, { rotation: 360, duration: 9, repeat: -1, ease: 'none', transformOrigin: '50% 50%' });
+        gsap.to(oIcon, { scale: 1.12, filter: 'drop-shadow(0 0 10px rgba(250,179,48,0.65))', duration: 1.8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    }
 
-    // Carousel section reveal
-    heroTl.fromTo('.carousel-section',
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
-        '-=0.5'
-    );
+    // Parallax Hero Backdrop
+    if (bg && heroSection) {
+        gsap.fromTo(bg,
+            { yPercent: 0, scale: 1.15 },
+            {
+                yPercent: 15,
+                scale: 1.35,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: heroSection,
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            }
+        );
+    }
 
     // ----------------------------------------------------
     // 3. Workflow Showcase (Floating AI Tools) ScrollTrigger

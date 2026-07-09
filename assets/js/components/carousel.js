@@ -1,46 +1,36 @@
 /**
  * Envizon Studio - Showcase Carousel
  * 5-card center-focused coverflow carousel driven by GSAP timelines.
- * Cards use transform-only properties (x, scale, rotation, opacity, filter)
+ * Cards use transform-only properties (x, scale, opacity)
  * so the loop stays on the compositor and holds 60fps.
  */
 
 const AUTOPLAY_MS = 3000;
 const SWIPE_THRESHOLD = 40;
 
-const SHADOWS = [
-    '0 40px 80px rgba(0,0,0,.35)',
-    '0 25px 50px rgba(0,0,0,.22)',
-    '0 15px 30px rgba(0,0,0,.15)',
-    '0 10px 20px rgba(0,0,0,.08)'
-];
-
 const LAYOUTS = {
     desktop: {
-        query: '(min-width: 1025px)',
         levels: [
-            { x: 0,   scale: 1,   opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 50 },
-            { x: 300, scale: .82, opacity: 1,   blur: 0,  rotate: 2, overlay: .35, z: 40 },
-            { x: 500, scale: .65, opacity: 1,   blur: .5, rotate: 3, overlay: .6,  z: 30 },
-            { x: 640, scale: .5,  opacity: 0,   blur: 2,  rotate: 4, overlay: .85, z: 10 }
+            { x: 0,   scale: 1,    opacity: 1, z: 50 },
+            { x: 373, scale: 0.63, opacity: 1, z: 40 },
+            { x: 637, scale: 0.45, opacity: 0, z: 30 },
+            { x: 850, scale: 0.35, opacity: 0, z: 10 }
         ]
     },
     tablet: {
-        query: '(min-width: 641px) and (max-width: 1024px)',
         levels: [
-            { x: 0,   scale: 1,   opacity: 1, blur: 0, rotate: 0, overlay: 0,   z: 50 },
-            { x: 200, scale: .8,  opacity: 1, blur: 0, rotate: 2, overlay: .35, z: 40 },
-            { x: 320, scale: .6,  opacity: 0, blur: 1, rotate: 3, overlay: .6,  z: 20 },
-            { x: 400, scale: .5,  opacity: 0, blur: 2, rotate: 4, overlay: .85, z: 10 }
+            { x: 0,   scale: 1,    opacity: 1, z: 50 },
+            { x: 291, scale: 0.63, opacity: 1, z: 40 },
+            { x: 500, scale: 0.45, opacity: 0, z: 20 },
+            { x: 700, scale: 0.35, opacity: 0, z: 10 }
         ]
     },
     mobile: {
-        query: '(max-width: 640px)',
         levels: [
-            { x: 0,   scale: 1,   opacity: 1,   blur: 0, rotate: 0, overlay: 0,   z: 50 },
-            { x: 150, scale: .78, opacity: .55, blur: 0, rotate: 2, overlay: .45, z: 20 },
-            { x: 210, scale: .6,  opacity: 0,   blur: 1, rotate: 3, overlay: .7,  z: 10 },
-            { x: 260, scale: .5,  opacity: 0,   blur: 2, rotate: 4, overlay: .9,  z: 5 }
+            { x: 0,   scale: 1,    opacity: 1, z: 50 },
+            { x: 216, scale: 0.63, opacity: 1, z: 20 },
+            { x: 380, scale: 0.45, opacity: 0, z: 10 },
+            { x: 550, scale: 0.35, opacity: 0, z: 5 }
         ]
     }
 };
@@ -53,8 +43,8 @@ function getOffset(index, active, total) {
 }
 
 function currentLayoutName() {
-    if (window.matchMedia(LAYOUTS.mobile.query).matches) return 'mobile';
-    if (window.matchMedia(LAYOUTS.tablet.query).matches) return 'tablet';
+    if (window.matchMedia('(max-width: 640px)').matches) return 'mobile';
+    if (window.matchMedia('(min-width: 641px) and (max-width: 1024px)').matches) return 'tablet';
     return 'desktop';
 }
 
@@ -64,17 +54,17 @@ export class ShowcaseCarousel {
         this.cards = Array.from(root.querySelectorAll('.showcase-card'));
         this.overlays = this.cards.map(card => card.querySelector('.showcase-card__overlay'));
         this.total = this.cards.length;
-        this.active = 0;
+        this.active = 2; // Sets initial index to middle card
         this.autoplayId = null;
         this.listeners = new Set();
 
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        this.duration = reduceMotion ? 0.01 : 1.1;
+        this.duration = reduceMotion ? 0.01 : 0.5;
 
         if (!this.total) return;
 
         this.handleBrokenImages();
-        gsap.set(this.cards, { xPercent: -50, yPercent: -50, force3D: true });
+        gsap.set(this.cards, { xPercent: -50, yPercent: 0, transformOrigin: '50% 100%', force3D: true });
         this.render(true);
         this.bindInteractions();
         this.startAutoplay();
@@ -103,12 +93,8 @@ export class ShowcaseCarousel {
                 x: cfg.x * sign,
                 scale: cfg.scale,
                 opacity: cfg.opacity,
-                rotation: cfg.rotate * sign,
-                filter: `blur(${cfg.blur}px)`,
-                boxShadow: SHADOWS[level],
                 force3D: true
             }, 0);
-            tl.to(this.overlays[i], { opacity: cfg.overlay }, 0);
 
             card.setAttribute('aria-current', i === this.active ? 'true' : 'false');
         });
@@ -140,14 +126,19 @@ export class ShowcaseCarousel {
 
     bindInteractions() {
         const stage = this.root.querySelector('.showcase-carousel__stage');
-        const prev = this.root.querySelector('.showcase-carousel__arrow--prev');
-        const next = this.root.querySelector('.showcase-carousel__arrow--next');
-
-        prev?.addEventListener('click', () => { this.prev(); this.restartAutoplay(); });
-        next?.addEventListener('click', () => { this.next(); this.restartAutoplay(); });
 
         this.cards.forEach((card, i) => {
             card.addEventListener('click', () => { this.goTo(i); this.restartAutoplay(); });
+
+            const img = card.querySelector('.showcase-card__image');
+            if (img) {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(img, { scale: 1.08, duration: 0.6, ease: 'power3.out' });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(img, { scale: 1, duration: 0.6, ease: 'power3.out' });
+                });
+            }
         });
 
         this.root.addEventListener('keydown', (e) => {
