@@ -15,6 +15,9 @@ export function initIndexAnimations() {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
+    // Standardised scroll-reveal duration (1.5 s across all pages)
+    const REVEAL = 0.7;
+
     // Respect user preferences for reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
@@ -36,7 +39,7 @@ export function initIndexAnimations() {
         // Slide down navbar from top
         gsap.fromTo(navbar,
             { y: -80, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
+            { y: 0, opacity: 1, duration: REVEAL, ease: 'power3.out' }
         );
 
         // Link hover effect: add classes/transitions using Javascript
@@ -85,9 +88,9 @@ export function initIndexAnimations() {
     gsap.set('.hero-buttons .btn', { scale: 0.6, opacity: 0 });
 
     gsap.timeline({ delay: 0.15, defaults: { ease: 'power4.out' } })
-        .to(words, { yPercent: 0, opacity: 1, duration: 1, stagger: 0.06 })
-        .to('.hero-content > p', { y: 0, opacity: 1, duration: 0.7, clearProps: 'transform' }, '-=0.55')
-        .to('.hero-buttons .btn', { scale: 1, opacity: 1, duration: 0.6, stagger: 0.12, ease: 'back.out(2.2)', clearProps: 'transform' }, '-=0.4');
+        .to(words, { yPercent: 0, opacity: 1, duration: REVEAL, stagger: 0.06 })
+        .to('.hero-content > p', { y: 0, opacity: 1, duration: REVEAL, clearProps: 'transform' }, '-=0.55')
+        .to('.hero-buttons .btn', { scale: 1, opacity: 1, duration: REVEAL, stagger: 0.12, ease: 'back.out(2.2)', clearProps: 'transform' }, '-=0.4');
 
     // Innovation O Spin & Pulse Glow
     if (oIcon) {
@@ -126,7 +129,7 @@ export function initIndexAnimations() {
     // Animate heading reveal
     workflowTl.fromTo('.workflow-showcase__heading .title-line-inner',
         { yPercent: 100 },
-        { yPercent: 0, duration: 1.0, stagger: 0.12, ease: 'power3.out' }
+        { yPercent: 0, duration: REVEAL, stagger: 0.12, ease: 'power3.out' }
     );
 
     gsap.set('.workflow-showcase__heading', { opacity: 1 });
@@ -134,7 +137,7 @@ export function initIndexAnimations() {
     // Stagger float cards scale in
     workflowTl.fromTo('.workflow-showcase__card',
         { scale: 0.85, opacity: 0, y: 40 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'back.out(1.5)' },
+        { scale: 1, opacity: 1, y: 0, duration: REVEAL, stagger: 0.12, ease: 'back.out(1.5)' },
         '-=0.6'
     );
 
@@ -150,20 +153,20 @@ export function initIndexAnimations() {
 
     craftTl.fromTo('.craft-header__title .title-line-inner',
         { yPercent: 100 },
-        { yPercent: 0, duration: 1.0, stagger: 0.12, ease: 'power3.out' }
+        { yPercent: 0, duration: REVEAL, stagger: 0.12, ease: 'power3.out' }
     );
 
     gsap.set('.craft-header__title', { opacity: 1 });
 
     craftTl.fromTo('.craft-header__text',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, ease: 'power2.out' },
         '-=0.6'
     );
 
     craftTl.fromTo('.craft-header__cta',
         { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.5)' },
+        { scale: 1, opacity: 1, duration: REVEAL, ease: 'back.out(1.5)' },
         '-=0.5'
     );
 
@@ -179,20 +182,20 @@ export function initIndexAnimations() {
 
     statsTl.fromTo('.stats-highlight__title .title-line-inner',
         { yPercent: 100 },
-        { yPercent: 0, duration: 1.0, stagger: 0.12, ease: 'power3.out' }
+        { yPercent: 0, duration: REVEAL, stagger: 0.12, ease: 'power3.out' }
     );
 
     gsap.set('.stats-highlight__title', { opacity: 1 });
 
     statsTl.fromTo('.stats-highlight__text',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, ease: 'power2.out' },
         '-=0.6'
     );
 
     statsTl.fromTo('.stats-highlight__card',
         { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, stagger: 0.12, ease: 'power2.out' },
         '-=0.5'
     );
 
@@ -218,20 +221,20 @@ export function initIndexAnimations() {
 
     integrationsTl.fromTo('.integrations__title .title-line-inner',
         { yPercent: 100 },
-        { yPercent: 0, duration: 1.0, stagger: 0.12, ease: 'power3.out' }
+        { yPercent: 0, duration: REVEAL, stagger: 0.12, ease: 'power3.out' }
     );
 
     gsap.set('.integrations__title', { opacity: 1 });
 
     integrationsTl.fromTo('.integrations__subtitle',
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, ease: 'power2.out' },
         '-=0.6'
     );
 
     integrationsTl.fromTo('.integrations__item',
         { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'back.out(1.5)' },
+        { scale: 1, opacity: 1, duration: REVEAL, stagger: 0.08, ease: 'back.out(1.5)' },
         '-=0.5'
     );
 
@@ -257,26 +260,26 @@ export function initIndexAnimations() {
 
     howTl.fromTo('.how-we-work__title .title-line-inner',
         { yPercent: 100 },
-        { yPercent: 0, duration: 1.0, stagger: 0.12, ease: 'power3.out' }
+        { yPercent: 0, duration: REVEAL, stagger: 0.12, ease: 'power3.out' }
     );
 
     gsap.set('.how-we-work__title', { opacity: 1 });
 
     howTl.fromTo('.how-we-work__text',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, ease: 'power2.out' },
         '-=0.6'
     );
 
     howTl.fromTo('.how-we-work__cta',
         { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.5)' },
+        { scale: 1, opacity: 1, duration: REVEAL, ease: 'back.out(1.5)' },
         '-=0.5'
     );
 
     howTl.fromTo('.stage-card',
         { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, stagger: 0.12, ease: 'power2.out' },
         '-=0.4'
     );
 
@@ -307,20 +310,20 @@ export function initIndexAnimations() {
 
     testTl.fromTo('.testimonials__title .title-line-inner',
         { yPercent: 100 },
-        { yPercent: 0, duration: 1.0, stagger: 0.12, ease: 'power3.out' }
+        { yPercent: 0, duration: REVEAL, stagger: 0.12, ease: 'power3.out' }
     );
 
     gsap.set('.testimonials__title', { opacity: 1 });
 
     testTl.fromTo('.testimonials__text',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, ease: 'power2.out' },
         '-=0.6'
     );
 
     testTl.fromTo('.testimonial-card',
         { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, stagger: 0.12, ease: 'power2.out' },
         '-=0.5'
     );
 
@@ -346,14 +349,14 @@ export function initIndexAnimations() {
 
     faqTl.fromTo('.faq__title .title-line-inner',
         { yPercent: 100 },
-        { yPercent: 0, duration: 1.0, stagger: 0.12, ease: 'power3.out' }
+        { yPercent: 0, duration: REVEAL, stagger: 0.12, ease: 'power3.out' }
     );
 
     gsap.set('.faq__title', { opacity: 1 });
 
     faqTl.fromTo('.faq-item',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' },
+        { y: 0, opacity: 1, duration: REVEAL, stagger: 0.1, ease: 'power2.out' },
         '-=0.5'
     );
 
@@ -365,7 +368,7 @@ export function initIndexAnimations() {
         {
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: REVEAL,
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: '.insights',
@@ -384,7 +387,7 @@ export function initIndexAnimations() {
             opacity: 1,
             y: 0,
             clipPath: 'inset(0% 0% 0% 0%)',
-            duration: 1.1,
+            duration: REVEAL,
             stagger: 0.15,
             ease: 'power3.out',
             scrollTrigger: {
@@ -425,18 +428,18 @@ export function initIndexAnimations() {
 
         ctaTl.fromTo('.lets-build-something-container span',
             { y: 35, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
+            { y: 0, opacity: 1, duration: REVEAL, stagger: 0.15, ease: 'power3.out' }
         );
 
         ctaTl.fromTo('.decorative-elements img',
             { scale: 0, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'back.out(1.8)' },
+            { scale: 1, opacity: 1, duration: REVEAL, stagger: 0.08, ease: 'back.out(1.8)' },
             '-=0.5'
         );
 
         ctaTl.fromTo('.cta-button-wrapper',
             { scale: 0.85, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.5)' },
+            { scale: 1, opacity: 1, duration: REVEAL, ease: 'back.out(1.5)' },
             '-=0.4'
         );
     }
@@ -477,7 +480,7 @@ export function initIndexAnimations() {
             {
                 y: 0,
                 opacity: 1,
-                duration: 0.7,
+                duration: REVEAL,
                 stagger: 0.1,
                 ease: 'power2.out',
                 scrollTrigger: {
