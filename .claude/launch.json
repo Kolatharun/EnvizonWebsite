@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "envizon-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "-l", "5502", "EnvizonWebsite"],
+      "port": 5502
+    },
+    {
+      "name": "envizon-static-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "-l", "5799", "EnvizonWebsite"],
+      "port": 5799
+    },
+    {
+      "name": "envizon-hero-session",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "-l", "5837", "EnvizonWebsite"],
+      "port": 5837
+    }
+  ]
+}
