@@ -25,26 +25,21 @@
     transition:all .3s ease;
 }
 
-/* Universal SVG Arrow styles */
-.svg-arrow {
-    width: 1em;
-    height: 1em;
-    stroke: currentColor;
-    stroke-width: 2.5;
-    fill: none;
+/* Universal Phosphor Icon Arrow styles */
+.ph-arrow-up-right {
     display: inline-block;
     vertical-align: middle;
-    flex-shrink: 0;
     transition: transform 0.3s ease;
 }
 
 /* Premium hover translation for arrows */
-.btn:hover .svg-arrow,
-.craft-header__cta:hover .svg-arrow,
-.insights__link:hover .svg-arrow,
-.stats-highlight__link:hover .svg-arrow,
-.header-btn:hover .svg-arrow,
-.link6:hover .svg-arrow {
+.btn:hover .ph-arrow-up-right,
+.craft-header__cta:hover .ph-arrow-up-right,
+.insights__link:hover .ph-arrow-up-right,
+.stats-highlight__link:hover .ph-arrow-up-right,
+.header-btn:hover .ph-arrow-up-right,
+.link6:hover .ph-arrow-up-right,
+.how-we-work__cta:hover .ph-arrow-up-right {
     transform: translate(3px, -3px);
 }
 
