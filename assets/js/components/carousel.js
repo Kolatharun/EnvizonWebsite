@@ -5,7 +5,7 @@
  * so the loop stays on the compositor and holds 60fps.
  */
 
-const AUTOPLAY_MS = 4000;
+const AUTOPLAY_MS = 1000;
 const SWIPE_THRESHOLD = 40;
 
 const SHADOWS = [
@@ -69,7 +69,7 @@ export class ShowcaseCarousel {
         this.listeners = new Set();
 
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        this.duration = reduceMotion ? 0.01 : 1.2;
+        this.duration = reduceMotion ? 0.01 : 0.5;
         this.reduceMotion = reduceMotion;
 
         if (!this.total) return;

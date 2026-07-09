@@ -310,8 +310,13 @@
 }
 
 @media(max-width:860px){
+    /* stacking the two columns turns the grid gap into a single row gap and
+       nearly doubles the content height that has to fit inside the pinned
+       stage, so the height budget grows and internal spacing tightens to
+       compensate — otherwise the longest service (title+desc+impact+4 tags)
+       overflows the card's bottom edge during the pinned scroll sequence */
     :root{
-        --craft-stage-height:clamp(560px, 82vh, 720px);
+        --craft-stage-height:clamp(560px, 92vh, 800px);
     }
 
     .craft-header__grid{
@@ -325,8 +330,22 @@
 
     .service-panel__inner{
         grid-template-columns:1fr;
-        gap:24px;
-        padding:32px 24px;
+        gap:16px;
+        padding:32px 28px;
+    }
+
+    .service-panel__index,
+    .service-panel__title{
+        margin-bottom:10px;
+    }
+
+    .service-panel__label{
+        margin-bottom:10px;
+    }
+
+    .service-panel__impact{
+        padding:18px 22px;
+        margin-bottom:14px;
     }
 }
 
@@ -336,15 +355,35 @@
     }
 
     :root{
-        --craft-stage-height:clamp(600px, 88vh, 780px);
+        --craft-stage-height:clamp(620px, 100vh, 860px);
     }
 
     .service-panel__inner{
-        padding:24px 18px;
+        padding:22px 18px;
+        gap:12px;
         border-radius:18px;
     }
 
+    .service-panel__index,
+    .service-panel__title{
+        margin-bottom:6px;
+    }
+
+    .service-panel__label{
+        margin-bottom:6px;
+    }
+
     .service-panel__impact{
-        padding:18px 20px;
+        padding:14px 16px;
+        margin-bottom:10px;
+    }
+
+    .service-panel__tags{
+        gap:8px;
+    }
+
+    .service-panel__tag{
+        padding:6px 14px;
+        font-size:12px;
     }
 }
