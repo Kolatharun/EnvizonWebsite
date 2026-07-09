@@ -2,12 +2,12 @@
 
 .testimonials{
     background:#F9F8F8;
-    padding:100px 0;
+    padding:var(--section-py-sm) 0;
     overflow:hidden;
 }
 
 .testimonials__container{
-    width:min(1196.64px, calc(100% - 48px));
+    width:min(var(--container), calc(100% - 48px));
     margin:0 auto;
     display:flex;
     flex-direction:column;
@@ -40,9 +40,10 @@
 }
 
 .testimonials__eyebrow span{
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:2px;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-eyebrow);
+    font-weight:var(--font-weight-bold);
+    letter-spacing:var(--letter-spacing-eyebrow);
     text-transform:uppercase;
     color:var(--text-muted);
 }
@@ -52,15 +53,16 @@
 }
 
 .testimonials__title{
-    font-size:64px;
-    font-weight:800;
-    line-height:1.15;
-    letter-spacing:-2px;
+    font-family:var(--font-family-display);
+    font-size:var(--font-size-section-title);
+    font-weight:var(--font-weight-black);
+    line-height:var(--line-height-h2);
+    letter-spacing:var(--letter-spacing-h2);
     color:var(--black);
 }
 
 .testimonials__title-accent{
-    color:#E5A223;
+    color:var(--accent);
 }
 
 .testimonials__aside{
@@ -69,9 +71,10 @@
 }
 
 .testimonials__text{
-    font-size:18px;
-    line-height:1.7;
-    color:#6D6D6D;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-lead);
+    line-height:var(--line-height-lead);
+    color:var(--text);
 }
 
 /* ============================= */
@@ -116,8 +119,9 @@
 
 .testimonial-card__text{
     flex:1;
-    font-size:15px;
-    line-height:1.7;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-body);
+    line-height:var(--line-height-body);
     color:var(--text);
 }
 
@@ -149,13 +153,15 @@
 }
 
 .testimonial-card__name{
-    font-size:14px;
-    font-weight:700;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-body);
+    font-weight:var(--font-weight-bold);
     color:var(--black);
 }
 
 .testimonial-card__role{
-    font-size:13px;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-button-sm);
     color:var(--text-muted);
 }
 
@@ -165,17 +171,8 @@
 
 @media(max-width:1024px){
 
-    .testimonials{
-        padding:80px 0;
-    }
-
     .testimonials__container{
         gap:56px;
-    }
-
-    .testimonials__title{
-        font-size:44px;
-        letter-spacing:-1px;
     }
 
     .testimonials__grid{
@@ -221,21 +218,8 @@
 
 @media(max-width:480px){
 
-    .testimonials{
-        padding:64px 0;
-    }
-
     .testimonials__container{
         gap:40px;
-    }
-
-    .testimonials__title{
-        font-size:34px;
-        letter-spacing:-0.5px;
-    }
-
-    .testimonials__text{
-        font-size:16px;
     }
 
     .testimonials__grid{

@@ -44,7 +44,7 @@ const SERVICES = [
         title: 'Product Strategy',
         description: 'The best-built feature is wasted if it solves the wrong problem. We align teams on what to build before a single screen gets designed.',
         impact: 'Teams we advise cut roadmap churn in half and ship validated features one release cycle sooner.',
-        tags: ['Market Research', 'Roadmapping', 'Stakeholder Workshops', 'Competitive Analysis']
+        tags: ['Market Research', 'Roadmapping', 'Stakeholder Workshops']
     }
 ];
 
@@ -157,16 +157,18 @@ export function initServicesScroll(sectionSelector = '#servicesScroll') {
     });
     setActive(0);
 
+    const wrapper = section.closest('.craft-section-wrapper') || stage;
+
     // One timeline "unit" per transition between adjacent cards — scrub maps
     // scroll progress onto it directly (bidirectional), so scrolling back up
     // reverses the exact same sequence with no separate reverse logic needed.
     const tl = gsap.timeline({
         scrollTrigger: {
-            trigger: stage,
+            trigger: wrapper,
             start: 'top top',
             end: () => `+=${(total - 1) * window.innerHeight}`,
             scrub: 1,
-            pin: stage,
+            pin: wrapper,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate(self) {

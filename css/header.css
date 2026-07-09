@@ -2,7 +2,7 @@
 
 .header{
     position:absolute;
-    top:30px;
+    top:clamp(20px, 4.5vw, 28px);
     left:0;
     width:100%;
     z-index:1000;
@@ -20,10 +20,10 @@
 .navbar-wrapper{
     position:relative;
     width:calc(100% - 32px);
-    max-width:1225px;
-    height:108px;
+    max-width:var(--container);
+    height:80px;
     margin:0 auto;
-    padding:13px;
+    padding:6px;
     border-radius:100px;
     background:rgba(255,255,255,.10);
     backdrop-filter:blur(15px);
@@ -36,7 +36,7 @@
 
 .navbar{
     width:100%;
-    height:100%;
+    height:90%;
     background:#ffffff;
     border-radius:100px;
     display:flex;
@@ -79,9 +79,9 @@
 }
 
 .nav-links a{
-    font-family:'Inter',sans-serif;
-    font-size:14px;
-    font-weight:500;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-button-sm);
+    font-weight:var(--font-weight-medium);
     color:var(--text-muted);
     transition:var(--transition-fast);
 }
@@ -105,6 +105,7 @@
 }
 
 .header-btn{
+    font-family:var(--font-family-body);
     width:136px;
     height:41px;
     border-radius:var(--radius-pill);
@@ -114,8 +115,8 @@
     align-items:center;
     justify-content:center;
     gap:10px;
-    font-size:12px;
-    font-weight:600;
+    font-size:var(--font-size-button-sm);
+    font-weight:var(--font-weight-button);
     flex-shrink:0;
     overflow:hidden;
     will-change:width;
@@ -272,9 +273,9 @@
 
 .mobile-nav-links a{
     display:block;
-    font-family:'Inter',sans-serif;
-    font-size:16px;
-    font-weight:500;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-button);
+    font-weight:var(--font-weight-medium);
     color:var(--text-muted);
     padding:16px 4px;
     border-bottom:1px solid #f0f0f0;

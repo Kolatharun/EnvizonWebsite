@@ -2,12 +2,14 @@
 
 .hero{
     position:relative;
-    min-height:100vh;
-    min-height:100dvh;
+    height:100vh;
+    height:100dvh;
     display:flex;
     flex-direction:column;
-    padding-top:120px;
-    padding-bottom:56px;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:clamp(120px, 15vw, 152px);
+    padding-bottom:0;
     overflow:hidden;
 }
 
@@ -15,10 +17,10 @@
     /* taller + offset than the hero itself so the GSAP parallax tween
        (see hero.js) always has image to reveal, never a hard edge */
     position:absolute;
-    top:-15%;
+    top:-0%;
     left:0;
     right:0;
-    height:130%;
+    height:100%;
     background-image:url('../../images/BGIMG-HERO.png');
     background-size:cover;
     background-position:center;
@@ -28,10 +30,14 @@
 }
 
 .hero-content{
-    /* fluid width: capped at 1040px, otherwise the viewport minus side gutters */
-    width:min(1040px, calc(100% - 32px));
+    /* fluid width: capped at var(--container) to attach strictly to navbar width */
+    width:min(var(--container), calc(100% - 32px));
     margin:0 auto;
-    padding-top: 72px;
+    padding-bottom: 52px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:24px;
     text-align:center;
     flex-shrink:0;
 }
@@ -39,11 +45,10 @@
 .hero-title{
     width:100%;
     font-family:'Satoshi',sans-serif;
+    font-size:var(--font-size-h1);
+    line-height:var(--line-height-h1);
+    letter-spacing:var(--letter-spacing-h1);
     font-weight:900;
-    line-height:1.15;
-    /* fluid scale: 30px at narrow phones up to 72px at desktop, no breakpoint jumps */
-    font-size:clamp(1.875rem, 0.85rem + 4.4vw, 4.5rem);
-    letter-spacing:clamp(-2.48px, -0.03em, -1px);
     color:#000;
     margin:0 auto;
     word-break:keep-all;
@@ -103,29 +108,21 @@
 }
 
 .hero-content > p{
-    font-size:clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
-    font-weight:400;
-    line-height:1.6;
+    font-size:var(--font-size-body);
+    line-height:var(--line-height-lead);
+    letter-spacing:var(--letter-spacing-body);
+    font-weight:var(--font-weight-regular);
     color:var(--text);
-    margin:24px 0 0 0;
+    margin:0;
     max-width:52ch;
-    margin-left:auto;
-    margin-right:auto;
 }
 
-@media(max-width:768px){
+/* below this, shrinking further would make the title illegible — let the
+   hero take its natural height and the page scroll instead of clipping content */
+@media(max-height:680px){
     .hero{
-        padding-top:110px;
-    }
-}
-
-@media(max-width:480px){
-    .hero{
-        padding-top:100px;
-        padding-bottom:32px;
-    }
-
-    .hero-content > p{
-        margin-top:14px;
+        height:auto;
+        min-height:100dvh;
+        overflow:visible;
     }
 }

@@ -24,7 +24,7 @@
 
     --border-light:#e5e5e5;
 
-    --container:1280px;
+    --container:912px;
 
     --radius:20px;
 
@@ -48,4 +48,126 @@
 
     --transition-base:.35s ease;
 
+  /* ---- Typography System – Golden Ratio Scale ---- */
+  --font-family-display: 'Satoshi', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+
+  /* Font Sizes */
+  --font-size-h1: 3.25rem;     /* 52px */
+  --font-size-h2: 2rem;        /* 32px */
+  --font-size-h3: 1.25rem;     /* 20px */
+  --font-size-h4: 0.8125rem;   /* 13px */
+  --font-size-h5: 0.6875rem;   /* 11px */
+  --font-size-h6: 0.6875rem;   /* 11px */
+
+  --font-size-lead: 1.0625rem; /* 17px — intro/lead paragraph */
+  --font-size-body: 0.875rem;  /* 14px — default paragraph */
+  --font-size-small: 0.75rem;  /* 12px — captions, small meta */
+  --font-size-caption: 0.75rem;/* 12px */
+
+  --font-size-button: 0.9375rem;/* 15px — button/nav links */
+  --font-size-button-sm: 0.8125rem;/* 13px */
+  --font-size-label: 0.8125rem;    /* 13px — form labels, eyebrows */
+  --font-size-eyebrow: 0.75rem;    /* 12px — uppercase kicker text */
+
+  /* ---- Line Heights (1.3–1.6 ratio) ---- */
+  --line-height-h1: 1.1;
+  --line-height-h2: 1.2;
+  --line-height-h3: 1.3;
+  --line-height-h4: 1.4;
+  --line-height-h5: 1.4;
+  --line-height-h6: 1.4;
+
+  --line-height-lead: 1.5;
+  --line-height-body: 1.55;
+  --line-height-small: 1.4;
+  --line-height-caption: 1.4;
+
+  --line-height-button: 1.3;
+  --line-height-label: 1.2;
+  --line-height-eyebrow: 1;
+
+  /* ---- Letter Spacing ---- */
+  --letter-spacing-h1: -0.02em;
+  --letter-spacing-h2: -0.015em;
+  --letter-spacing-h3: -0.01em;
+  --letter-spacing-h4: 0em;
+  --letter-spacing-h5: 0em;
+  --letter-spacing-h6: 0em;
+  --letter-spacing-body: 0em;
+  --letter-spacing-button: 0.02em;
+
+  /* ---- Font Weights ---- */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --font-weight-h1: 900;
+  --font-weight-h2-h6: 700;
+  --font-weight-body: 400;
+  --font-weight-button: 600;
+  --font-weight-label: 600;
+  --font-weight-eyebrow: 600;
+
+  /* ---- Section Rhythm ----
+     Shared vertical padding for full-width content sections below the fold.
+     Previously referenced by several components (testimonials, FAQ, how-we-work,
+     insights, integrations, stats-highlight) but never defined here, so those
+     sections silently rendered with zero vertical padding. */
+  --section-py-sm: clamp(64px, 8vw, 96px);
+  --section-py-md: clamp(80px, 9vw, 120px);
+  --section-py-lg: clamp(96px, 10vw, 140px);
+
+  /* ---- Section Title ----
+     Statement headline that opens each content section (Craft That Converts,
+     Built For Businesses, How We Work, etc.) — bigger than --font-size-h2 but
+     kept on the same golden-ratio curve as the hero so every section reads as
+     part of one system instead of a one-off size per component. */
+  --font-size-section-title: clamp(2.25rem, 1.5rem + 2.8vw, 3.5rem); /* 36px – 56px */
+
+  --letter-spacing-eyebrow: 0.15em;
+
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   912px = desktop/base (Figma reference width)
+   ============================================ */
+
+/* Tablet — 600px to 911px */
+@media (max-width: 911px) {
+  :root {
+    --font-size-h1: 2.75rem;    /* 44px */
+    --font-size-h2: 1.75rem;    /* 28px */
+    --font-size-h3: 1.125rem;   /* 18px */
+    --font-size-h4: 0.8125rem;  /* 13px */
+    --font-size-h5: 0.6875rem;  /* 11px */
+    --font-size-h6: 0.6875rem;  /* 11px */
+
+    --font-size-lead: 0.9375rem; /* 15px */
+    --font-size-body: 0.875rem;  /* 14px */
+    --font-size-button: 0.875rem;/* 14px */
+  }
+}
+
+/* Mobile — up to 599px */
+@media (max-width: 599px) {
+  :root {
+    --font-size-h1: 2rem;        /* 32px */
+    --font-size-h2: 1.5rem;      /* 24px */
+    --font-size-h3: 1.0625rem;   /* 17px */
+    --font-size-h4: 0.8125rem;   /* 13px */
+    --font-size-h5: 0.6875rem;   /* 11px */
+    --font-size-h6: 0.6875rem;   /* 11px */
+
+    --font-size-lead: 0.875rem;  /* 14px */
+    --font-size-body: 0.875rem;  /* 14px */
+    --font-size-small: 0.75rem;  /* 12px */
+    --font-size-button: 0.8125rem;/* 13px */
+
+    --letter-spacing-h1: -0.015em;
+    --letter-spacing-h2: -0.01em;
+  }
 }

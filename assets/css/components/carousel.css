@@ -6,15 +6,15 @@
 }
 
 .showcase-carousel{
-    --card-w:520px;
-    --card-radius:var(--radius);
-    --stage-h:480px;
+    --card-w: 421px;
+    --card-radius: var(--radius);
+    --stage-h: 326px;
 
     position:relative;
     width:100%;
     max-width:1600px;
     margin:0 auto;
-    padding:64px 0 48px;
+    padding:0;
 }
 
 .showcase-carousel:focus{
@@ -110,6 +110,22 @@
     border-radius:var(--card-radius);
 }
 
+/* depth cue: dim side cards and lift the active one so it reads as the hero.
+   GSAP writes inline transform/opacity/zIndex onto .showcase-card itself, so
+   this targets the child media box instead — nothing here fights the tween. */
+.showcase-card[aria-current="false"] .showcase-card__media{
+    opacity:.6;
+    filter:saturate(.85) brightness(1.03);
+    transition:opacity .6s ease, filter .6s ease, box-shadow .6s ease;
+}
+
+.showcase-card[aria-current="true"] .showcase-card__media{
+    opacity:1;
+    filter:none;
+    box-shadow:0 40px 80px -24px rgba(0,0,0,.35), 0 12px 28px -10px rgba(0,0,0,.18);
+    transition:opacity .6s ease, filter .6s ease, box-shadow .6s ease;
+}
+
 .showcase-carousel__arrow{
     display:none !important;
 }
@@ -136,8 +152,8 @@
 @media(max-width:1024px){
     .showcase-carousel{
         --card-w:320px;
-        --stage-h:300px;
-        padding:40px 0 32px;
+        --stage-h:clamp(260px, 32vh, 300px);
+        padding:clamp(20px, 4vh, 40px) 0 clamp(16px, 3vh, 32px);
     }
 
     .showcase-card__label{
@@ -149,8 +165,8 @@
 @media(max-width:640px){
     .showcase-carousel{
         --card-w:240px;
-        --stage-h:230px;
-        padding:32px 0 24px;
+        --stage-h:clamp(200px, 26vh, 230px);
+        padding:clamp(16px, 3vh, 32px) 0 clamp(12px, 2.5vh, 24px);
     }
 
     .showcase-carousel__arrow{
@@ -178,25 +194,25 @@
     bottom: 0;
     width: 25%;
     max-width: 400px;
-    z-index: 10;
+    z-index: 45;
     pointer-events: none;
 }
 
 .showcase-carousel__stage::before {
     left: 0;
-    background: linear-gradient(to right, 
-        #ffffff 0%, 
-        rgba(255, 255, 255, 0.98) 20%, 
-        rgba(255, 255, 255, 0.8) 50%, 
+    background: linear-gradient(to right,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.9) 35%,
+        rgba(255, 255, 255, 0.45) 68%,
         rgba(255, 255, 255, 0) 100%);
 }
 
 .showcase-carousel__stage::after {
     right: 0;
-    background: linear-gradient(to left, 
-        #ffffff 0%, 
-        rgba(255, 255, 255, 0.98) 20%, 
-        rgba(255, 255, 255, 0.8) 50%, 
+    background: linear-gradient(to left,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.9) 35%,
+        rgba(255, 255, 255, 0.45) 68%,
         rgba(255, 255, 255, 0) 100%);
 }
 

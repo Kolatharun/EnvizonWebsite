@@ -13,12 +13,12 @@
 
 .how-we-work{
     background:#F9F8F8;
-    padding:100px 0;
+    padding:var(--section-py-sm) 0;
     overflow:hidden;
 }
 
 .how-we-work__container{
-    width:min(1196px, calc(100% - 48px));
+    width:min(var(--container), calc(100% - 48px));
     margin:0 auto;
 }
 
@@ -49,18 +49,20 @@
 }
 
 .how-we-work__eyebrow span{
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:2px;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-eyebrow);
+    font-weight:var(--font-weight-bold);
+    letter-spacing:var(--letter-spacing-eyebrow);
     text-transform:uppercase;
     color:var(--text-muted);
 }
 
 .how-we-work__title{
-    font-size:clamp(2.25rem, 1.5rem + 2.8vw, 3.5rem);
-    font-weight:800;
-    line-height:1.1;
-    letter-spacing:-0.02em;
+    font-family:var(--font-family-display);
+    font-size:var(--font-size-section-title);
+    font-weight:var(--font-weight-black);
+    line-height:var(--line-height-h2);
+    letter-spacing:var(--letter-spacing-h2);
     color:var(--black);
 }
 
@@ -86,14 +88,16 @@
     border-radius:var(--radius-pill);
     background:#ffffff;
     border:1px solid var(--border-light);
-    font-size:14px;
-    font-weight:600;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-button-sm);
+    font-weight:var(--font-weight-button);
+    letter-spacing:var(--letter-spacing-button);
     color:var(--black);
     transition:border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .how-we-work__cta span{
-    font-size:15px;
+    font-size:var(--font-size-button);
 }
 
 .how-we-work__cta:hover{
@@ -103,8 +107,9 @@
 }
 
 .how-we-work__text{
-    font-size:16px;
-    line-height:1.6;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-lead);
+    line-height:var(--line-height-lead);
     color:var(--text);
 }
 
@@ -159,9 +164,10 @@
 }
 
 .stage-card__number{
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:1.5px;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-eyebrow);
+    font-weight:var(--font-weight-bold);
+    letter-spacing:var(--letter-spacing-eyebrow);
     text-transform:uppercase;
     color:var(--text-muted);
     transition:color var(--how-work-anim);
@@ -194,9 +200,10 @@
 }
 
 .stage-card__title{
-    font-size:22px;
-    font-weight:700;
-    letter-spacing:-0.01em;
+    font-family:var(--font-family-display);
+    font-size:var(--font-size-h3);
+    font-weight:var(--font-weight-h2-h6);
+    letter-spacing:var(--letter-spacing-h3);
     color:var(--black);
     transition:color var(--how-work-anim);
     white-space:nowrap;
@@ -207,8 +214,9 @@
 }
 
 .stage-card__desc{
-    font-size:14px;
-    line-height:1.6;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-body);
+    line-height:var(--line-height-body);
     color:rgba(255,255,255,.72);
     opacity:0;
     max-height:0;
@@ -230,10 +238,6 @@
    reachable via normal page scroll instead of a hidden side-scroll track. */
 
 @media(max-width:1024px){
-
-    .how-we-work{
-        padding:80px 0;
-    }
 
     .how-we-work__header{
         margin-bottom:56px;
@@ -289,20 +293,12 @@
 
 @media(max-width:480px){
 
-    .how-we-work{
-        padding:64px 0;
-    }
-
     .how-we-work__header{
         margin-bottom:40px;
     }
 
     .stage-card__inner{
         padding:24px 20px;
-    }
-
-    .stage-card__title{
-        font-size:20px;
     }
 
     .stage-card.is-active .stage-card__desc{

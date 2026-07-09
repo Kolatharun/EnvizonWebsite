@@ -20,27 +20,27 @@ const LAYOUTS = {
         query: '(min-width: 1025px)',
         levels: [
             { x: 0,    scale: 1,   opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 50 },
-            { x: 498,  scale: .8,  opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 40 },
-            { x: 897,  scale: .62, opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 30 },
-            { x: 1213, scale: .48, opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 10 }
+            { x: 373,  scale: .63, opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 40 },
+            { x: 637,  scale: .45, opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 30 },
+            { x: 850,  scale: .35, opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 10 }
         ]
     },
     tablet: {
         query: '(min-width: 641px) and (max-width: 1024px)',
         levels: [
             { x: 0,   scale: 1,   opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 50 },
-            { x: 318, scale: .8,  opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 40 },
-            { x: 572, scale: .6,  opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 20 },
-            { x: 778, scale: .5,  opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 10 }
+            { x: 291, scale: .63, opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 40 },
+            { x: 500, scale: .45, opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 20 },
+            { x: 700, scale: .35, opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 10 }
         ]
     },
     mobile: {
         query: '(max-width: 640px)',
         levels: [
             { x: 0,   scale: 1,   opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 50 },
-            { x: 244, scale: .78, opacity: .55, blur: 0,  rotate: 0, overlay: 0,   z: 20 },
-            { x: 440, scale: .6,  opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 10 },
-            { x: 602, scale: .5,  opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 5 }
+            { x: 216, scale: .63, opacity: 1,   blur: 0,  rotate: 0, overlay: 0,   z: 20 },
+            { x: 380, scale: .45, opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 10 },
+            { x: 550, scale: .35, opacity: 0,   blur: 0,  rotate: 0, overlay: 0,   z: 5 }
         ]
     }
 };
@@ -64,7 +64,7 @@ export class ShowcaseCarousel {
         this.cards = Array.from(root.querySelectorAll('.showcase-card'));
         this.overlays = this.cards.map(card => card.querySelector('.showcase-card__overlay'));
         this.total = this.cards.length;
-        this.active = 0;
+        this.active = 2;
         this.autoplayId = null;
         this.listeners = new Set();
 

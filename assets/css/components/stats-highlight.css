@@ -2,11 +2,11 @@
 
 .stats-highlight{
     background:#ffffff;
-    padding:140px 0;
+    padding:var(--section-py-lg) 0;
 }
 
 .stats-highlight__container{
-    width:min(1197px, calc(100% - 48px));
+    width:min(var(--container), calc(100% - 48px));
     margin:0 auto;
 }
 
@@ -19,10 +19,11 @@
 }
 
 .stats-highlight__title{
-    font-size:clamp(2.75rem, 1.6rem + 3.6vw, 4.5rem);
-    font-weight:800;
-    line-height:1.08;
-    letter-spacing:-0.02em;
+    font-family:var(--font-family-display);
+    font-size:var(--font-size-section-title);
+    font-weight:var(--font-weight-black);
+    line-height:var(--line-height-h2);
+    letter-spacing:var(--letter-spacing-h2);
     color:var(--black);
     margin-bottom:28px;
 }
@@ -39,8 +40,9 @@
 }
 
 .stats-highlight__text{
-    font-size:20px;
-    line-height:1.6;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-lead);
+    line-height:var(--line-height-lead);
     color:var(--text);
     max-width:52ch;
 }
@@ -59,8 +61,9 @@
     display:inline-flex;
     align-items:center;
     gap:8px;
-    font-size:15px;
-    font-weight:600;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-button);
+    font-weight:var(--font-weight-button);
     color:var(--black);
     text-decoration:underline;
     text-underline-offset:4px;
@@ -109,8 +112,9 @@
 }
 
 .stats-highlight__percent{
+    font-family:var(--font-family-display);
     font-size:56px;
-    font-weight:800;
+    font-weight:var(--font-weight-black);
     line-height:1;
     color:var(--primary);
     margin-bottom:20px;
@@ -122,8 +126,10 @@
 }
 
 .stats-highlight__card-title{
-    font-size:20px;
-    font-weight:700;
+    font-family:var(--font-family-display);
+    font-size:var(--font-size-h3);
+    line-height:var(--line-height-h3);
+    font-weight:var(--font-weight-h2-h6);
     color:var(--black);
     margin-bottom:12px;
     transition:color .3s ease;
@@ -134,8 +140,9 @@
 }
 
 .stats-highlight__card-desc{
-    font-size:16px;
-    line-height:1.6;
+    font-family:var(--font-family-body);
+    font-size:var(--font-size-body);
+    line-height:var(--line-height-body);
     color:var(--text);
     transition:color .3s ease;
 }
@@ -149,10 +156,6 @@
 /* ============================= */
 
 @media(max-width:1024px){
-    .stats-highlight{
-        padding:100px 0;
-    }
-
     .stats-highlight__top{
         margin-bottom:64px;
     }
@@ -179,10 +182,6 @@
 }
 
 @media(max-width:600px){
-    .stats-highlight{
-        padding:72px 0;
-    }
-
     .stats-highlight__top{
         margin-bottom:48px;
     }

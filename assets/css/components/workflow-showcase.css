@@ -9,9 +9,10 @@
 }
 
 .workflow-showcase{
-    /* background:#F9F8F8; */
+    background:#111111;
     padding:0 20px;
     overflow:visible;
+    transition:background-color 0.6s ease;
 }
 
 /* ============================= */
@@ -64,9 +65,10 @@
     font-size:36px;
     line-height:1;
     letter-spacing:-1px;
-    color:var(--workflow-ink);
+    color:#ffffff;
     max-width:100%;
     margin:0 auto;
+    transition:color 0.6s ease;
 }
 
 .workflow-showcase__highlight{
@@ -82,7 +84,7 @@
 .workflow-showcase__toggle{
     display:inline-flex;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-start;
     width:1.719em;
     height:0.906em;
     padding:0.109em;
@@ -91,6 +93,9 @@
     box-shadow:0 10px 24px rgba(232,161,26,.25);
     vertical-align:middle;
     margin:0 6px;
+    border:none;
+    cursor:pointer;
+    outline:none;
     transition:transform var(--transition-fast);
 }
 
@@ -107,11 +112,25 @@
     border-radius:50%;
     background:#ffffff;
     flex-shrink:0;
+    will-change:transform;
 }
 
 .workflow-showcase__toggle-icon{
     width:60%;
     height:60%;
+}
+
+/* Inline grid wrapper for smooth text swapping without layout shift */
+.workflow-showcase__text-switch {
+    display: inline-grid;
+    grid-template-areas: "stack";
+    align-items: center;
+    vertical-align: bottom;
+}
+
+.workflow-showcase__text-item {
+    grid-area: stack;
+    white-space: nowrap;
 }
 
 /* ============================= */

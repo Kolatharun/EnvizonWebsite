@@ -9,7 +9,7 @@
   align-items: flex-end;
   height: auto;
   min-height: 0;
-  //padding: clamp(80px, 10vw, 152px) 0 clamp(80px, 10vw, 152px);
+  padding: var(--section-py-lg) 0;
   gap: clamp(72px, 12vw, 150px);
   max-width: 100%;
   align-self: stretch;
@@ -230,12 +230,6 @@
   width: var(--width-19);
   height: var(--height-19);
   gap: var(--gap-0);
-}
-
-@media screen and (max-width: 1200px) {
-  .global-cta {
-    padding-top: 99px;
-  }
 }
 
 @media screen and (max-width: 1050px) {

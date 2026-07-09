@@ -18,6 +18,95 @@ export function initWorkflowShowcase(selector = '.workflow-showcase') {
     const container = section.querySelector('.workflow-showcase__container');
     if (!container) return;
 
+    const toggleBtn = section.querySelector('.workflow-showcase__toggle');
+    const toggleKnob = section.querySelector('.workflow-showcase__toggle-knob');
+    const toolsText = section.querySelector('.workflow-showcase__text-item--tools');
+    const worksText = section.querySelector('.workflow-showcase__text-item--works');
+    const heading = section.querySelector('.workflow-showcase__heading');
+
+    if (toggleBtn && toggleKnob && toolsText && worksText && heading) {
+        // Set initial state for works text (tools is visible by default in DOM)
+        gsap.set(worksText, { y: 20, opacity: 0 });
+
+        let isToggled = false;
+        let isAnimating = false;
+
+        const handleToggle = () => {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            isToggled = !isToggled;
+            toggleBtn.setAttribute('aria-pressed', isToggled ? 'true' : 'false');
+
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    isAnimating = false;
+                }
+            });
+
+            // 1. Move knob (translateX the knob by 0.813em)
+            tl.to(toggleKnob, {
+                x: isToggled ? '0.813em' : 0,
+                duration: 0.5,
+                ease: 'power3.inOut'
+            }, 0);
+
+            // 2. Change section background and text colors
+            tl.to(section, {
+                backgroundColor: isToggled ? '#F9F8F8' : '#111111',
+                duration: 0.6,
+                ease: 'power2.inOut'
+            }, 0);
+
+            tl.to(heading, {
+                color: isToggled ? '#111111' : '#ffffff',
+                duration: 0.6,
+                ease: 'power2.inOut'
+            }, 0);
+
+            // 3. Text swap animation (Tools <-> Works)
+            if (isToggled) {
+                // Tools out (slides up & fades), Works in (slides up from below & fades in)
+                tl.to(toolsText, {
+                    y: -20,
+                    opacity: 0,
+                    duration: 0.45,
+                    ease: 'power2.inOut'
+                }, 0);
+                
+                tl.fromTo(worksText, 
+                    { y: 20, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' },
+                    0.05
+                );
+            } else {
+                // Works out (slides up & fades), Tools in (slides up from below & fades in)
+                tl.to(worksText, {
+                    y: -20,
+                    opacity: 0,
+                    duration: 0.45,
+                    ease: 'power2.inOut'
+                }, 0);
+
+                tl.fromTo(toolsText,
+                    { y: 20, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' },
+                    0.05
+                );
+            }
+        };
+
+        toggleBtn.addEventListener('click', handleToggle);
+        
+        // Add keyboard interaction for accessibility
+        toggleBtn.addEventListener('keydown', (e) => {
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                handleToggle();
+            }
+        });
+    }
+
     const cards = Array.from(section.querySelectorAll('.workflow-showcase__card'));
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
