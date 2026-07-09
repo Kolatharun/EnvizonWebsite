@@ -1,4 +1,4 @@
-import { initNavbar } from '../assets/js/components/navbar.js';
+import { initNavbar } from '../assets/js/components/navbar.js?v=1.1';
 
 document.addEventListener('DOMContentLoaded', () => {
     const placeholder = document.querySelector('header.header');
