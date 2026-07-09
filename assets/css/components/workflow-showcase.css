@@ -96,6 +96,8 @@
     border:none;
     cursor:pointer;
     outline:none;
+    font-size:inherit;
+    font-family:inherit;
     transition:transform var(--transition-fast);
 }
 
