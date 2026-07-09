@@ -1,12 +1,12 @@
 /**
  * Envizon Studio - Projects page: Brand logo grid (paginated)
  * Section-specific: owns only this grid's project data and pagination.
- * Card markup/styles/hover behavior all come from the shared ProjectCard
- * component (assets/js/components/project-card.js) — same one used by the
+ * Card markup/styles all come from the shared ProjectCard component
+ * (assets/js/components/project-card.js) — same one used by the
  * featured-brands grid above it.
  */
 
-import { renderProjectCard, bindProjectCardTouchActivation } from './project-card.js';
+import { renderProjectCard } from './project-card.js';
 
 const PAGE_SIZE = 8;
 
@@ -83,6 +83,5 @@ export function initProjectsLogoGrid(root = '#projectsLogoGrid'){
         });
     }
 
-    bindProjectCardTouchActivation();
     renderPage();
 }

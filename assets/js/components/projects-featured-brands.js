@@ -1,11 +1,11 @@
 /**
  * Envizon Studio - Projects page: Featured brands grid
  * Section-specific: owns only this grid's project data and scroll-reveal
- * timing. Card markup/styles/hover behavior all come from the shared
- * ProjectCard component (assets/js/components/project-card.js).
+ * timing. Card markup/styles all come from the shared ProjectCard component
+ * (assets/js/components/project-card.js).
  */
 
-import { renderProjectCard, initProjectCardGrid } from './project-card.js';
+import { renderProjectCard, revealProjectCardsOnScroll } from './project-card.js';
 
 const brands = [
     {
@@ -66,5 +66,5 @@ export function initProjectsFeaturedBrands(root = '#projectsFeaturedBrandsGrid')
     brands.forEach(brand => fragment.appendChild(renderProjectCard(brand)));
     grid.appendChild(fragment);
 
-    initProjectCardGrid(Array.from(grid.querySelectorAll('.project-card')));
+    revealProjectCardsOnScroll(Array.from(grid.querySelectorAll('.project-card')));
 }

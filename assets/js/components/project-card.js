@@ -4,16 +4,18 @@
  * (Featured Projects, Brand Grid, and any future section — Case Studies,
  * Related Projects, a Carousel, etc.). Sections own their own data and grid
  * chrome; they all render cards through renderProjectCard() from here so
- * there is exactly one card markup, one stylesheet (project-card.css), and
- * one set of behaviors (scroll reveal, hover animation, touch activation).
+ * there is exactly one card markup and one stylesheet (project-card.css).
  *
  * The card's frame is the Figma-exported "GP-SVG" shape (viewBox 0 0 400
- * 178). It is defined once as an SVG <symbol> injected into the page on
- * first render and referenced per card via <use>, so the path data is never
- * duplicated in the DOM no matter how many cards or sections render it. The
- * yellow path uses fill="currentColor" so each card can recolor it on
- * hover/touch via CSS alone (project-card.css sets `color`); the white
- * panel and all geometry are fixed and are never touched by JS or CSS.
+ * 178), always shown fully expanded with its accent color and tags visible
+ * — there is no hover-triggered reveal, so the card looks identical whether
+ * or not it's being interacted with. It is defined once as an SVG <symbol>
+ * injected into the page on first render and referenced per card via
+ * <use>, so the path data is never duplicated in the DOM no matter how
+ * many cards or sections render it. The yellow path uses
+ * fill="currentColor" so each card can tint it with its own accent color
+ * via CSS alone; the white panel and all geometry are fixed and are never
+ * touched by JS or CSS.
  */
 
 const FRAME_SYMBOL_ID = 'project-card-frame';
@@ -36,7 +38,7 @@ function ensureFrameSprite(){
  * @param {string} data.title
  * @param {string} data.logo - image src for the project/brand logo
  * @param {string} data.bgColor - CSS background (color or gradient)
- * @param {string} data.accentColor - hover fill for the SVG frame
+ * @param {string} data.accentColor - fill for the SVG frame
  * @param {string[]} data.tags
  * @param {string} data.url - case study link
  * @returns {HTMLAnchorElement}
@@ -59,11 +61,9 @@ export function renderProjectCard(data){
         <span class="project-card__background">
             <img class="project-card__logo" src="${data.logo}" alt="" loading="lazy" decoding="async">
         </span>
-        <span class="project-card__frame-mask">
-            <svg class="project-card__frame" viewBox="0 0 400 178" aria-hidden="true" focusable="false">
-                <use href="#${FRAME_SYMBOL_ID}"></use>
-            </svg>
-        </span>
+        <svg class="project-card__frame" viewBox="0 0 400 178" aria-hidden="true" focusable="false">
+            <use href="#${FRAME_SYMBOL_ID}"></use>
+        </svg>
         <span class="project-card__content">
             <h3 class="project-card__name">${data.title}</h3>
             <ul class="project-card__tags">${tagsMarkup}</ul>
@@ -84,40 +84,4 @@ export function revealProjectCardsOnScroll(cards){
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     cards.forEach(card => observer.observe(card));
-}
-
-let touchActivationBound = false;
-
-/**
- * Touch devices have no real :hover, so the hover reveal can never be seen
- * before the link navigates away. First tap reveals it instead of
- * navigating; a second tap (now that the card is "active") follows the
- * link. Delegated on `document` and idempotent, so it works for every
- * .project-card on the page — including ones rendered later (pagination,
- * carousel slides) — and only needs to be called once per page.
- */
-export function bindProjectCardTouchActivation(){
-    if (touchActivationBound) return;
-    if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
-    touchActivationBound = true;
-
-    document.addEventListener('click', (event) => {
-        const card = event.target.closest('.project-card');
-
-        if (!card){
-            document.querySelectorAll('.project-card.is-touch-active').forEach(c => c.classList.remove('is-touch-active'));
-            return;
-        }
-
-        if (card.classList.contains('is-touch-active')) return;
-        event.preventDefault();
-        document.querySelectorAll('.project-card.is-touch-active').forEach(c => c.classList.remove('is-touch-active'));
-        card.classList.add('is-touch-active');
-    });
-}
-
-/** Convenience helper for the common case: reveal-on-scroll + touch activation. */
-export function initProjectCardGrid(cards){
-    revealProjectCardsOnScroll(cards);
-    bindProjectCardTouchActivation();
 }
